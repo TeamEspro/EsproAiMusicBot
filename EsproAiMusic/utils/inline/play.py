@@ -1,5 +1,4 @@
 import math
-from config import SUPPORT_CHAT, OWNER_USERNAME
 from pyrogram.types import InlineKeyboardButton
 from EsproAiMusic import app
 from EsproAiMusic.utils.formatters import time_to_seconds
