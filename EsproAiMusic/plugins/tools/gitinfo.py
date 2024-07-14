@@ -6,18 +6,18 @@ from EsproAiMusic import app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 ###
-@app.on_message(filters.command("EsproAihub"))
+@app.on_message(filters.command("DAXXhub"))
 async def EsproAihub(_, message):
-    text = message.text[len("/EsproAihub") :]
-    papaEsproAi(f"{text}").save(f"EsproAihub_{message.from_user.id}.png")
-    await message.reply_photo(f"EsproAihub_{message.from_user.id}.png")
-    os.remove(f"EsproAihub_{message.from_user.id}.png")
+    text = message.text[len("/DAXXhub") :]
+    papaEsproAi(f"{text}").save(f"DAXXhub_{message.from_user.id}.png")
+    await message.reply_photo(f"DAXXhub_{message.from_user.id}.png")
+    os.remove(f"DAXXhub_{message.from_user.id}.png")
 ####
 
 @app.on_message(filters.command(["github", "git"]))
 async def github(_, message):
     if len(message.command) != 2:
-        await message.reply_text("/git EsproAiTEAM")
+        await message.reply_text("/git TeamEspro")
         return
 
     username = message.text.split(None, 1)[1]
