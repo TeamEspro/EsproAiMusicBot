@@ -4,7 +4,7 @@ from EsproAiMusic import app
 
 waifu_api_url = 'https://api.waifu.im/search'
 
-# IAM_EsproAi
+# HaiwanOwner
 
 def get_waifu_data(tags):
     params = {
