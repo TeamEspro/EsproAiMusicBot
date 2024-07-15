@@ -9,7 +9,7 @@ from EsproAiMusic import app
 MUST_JOIN = "EsproUpdate"
 #------------------------
 
-YUMI_PICS = [
+Espro_PICS = [
 "https://telegra.ph/file/2e85d11aefdf6cd01301b.jpg",
 "https://telegra.ph/file/0a08b180583f13952336a.jpg",
 "https://telegra.ph/file/ace92d59d19127d2d4e89.jpg",
