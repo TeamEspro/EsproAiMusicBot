@@ -20,7 +20,7 @@ from EsproAiMusic.misc import SUDOERS
 
 
 
-BOT_LIST = ["NexikoBot", "GITHUBCONTROLROBOT"]
+BOT_LIST = ["EsproAiMusicBot", "EsproMusicBot"]
 
 
 
