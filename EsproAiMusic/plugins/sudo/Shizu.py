@@ -70,13 +70,13 @@ async def restriction_app(app :app, message):
                     await message.reply(random.choice(strict_txt))          
                 else:
                     await app.ban_chat_member(chat_id, user_id)
-                    await message.reply("OK, Ban kar diya madrchod ko sala Dogla tha !")
+                    await message.reply("OK, Ban kar diya mc ko sala Dogla tha aap khush ho na!")
                     
         for unbanned in data:
             print(f"present {unbanned}")
             if unbanned in unban:
                 await app.unban_chat_member(chat_id, user_id)
-                await message.reply(f"Ok, aap bolte hai to unban kar diya gandu ko") 
+                await message.reply(f"OK, aap bolte hai to unban kar diya gandu ko sala Dogla jesa kaam karta hai bass aap khush raho") 
                 
         for kicked in data:
             print(f"present {kicked}")
