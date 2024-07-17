@@ -16,7 +16,7 @@ user_data = {}
 
 today = {}
 
-pic = "https://telegra.ph/file/74c55eda58052e64e2747.jpg"
+pic = "https://telegra.ph/file/069e69ad5b08eaf94844e.jpg"
 
 
 # ------------------- watcher ----------------------- #
