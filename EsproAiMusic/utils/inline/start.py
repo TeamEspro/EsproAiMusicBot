@@ -34,5 +34,6 @@ def private_panel(_):
         
         
         [InlineKeyboardButton(text=_["S_B_5"], user_id=config.OWNER_ID)],
+        [InlineKeyboardButton(text=_["S_B_11"], url=f"https://t.me/+YkTvt1LsfsI3ZjM9")],
     ]
     return buttons
