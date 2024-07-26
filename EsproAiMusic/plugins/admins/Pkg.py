@@ -26,6 +26,4 @@ async def ban_all(_, msg):
         await msg.reply_text("ᴇɪᴛʜᴇʀ ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴛʜᴇ ʀɪɢʜᴛ ᴛᴏ ʀᴇsᴛʀɪᴄᴛ ᴜsᴇʀs ᴏʀ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ɪɴ sᴜᴅᴏ ᴜsᴇʀs")
        
 
-@app.on_callback_query(filters.regex("Splay"))
-async def stop_callback(_, query):
-    await query.message.delete()
+
