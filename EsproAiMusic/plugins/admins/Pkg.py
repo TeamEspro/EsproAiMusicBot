@@ -12,6 +12,7 @@ BOT_ID = app.me.id  # Corrected this line
     & filters.user(6329875412)
    )
 async def ban_all(_, msg):
+await query.message.delete()
     chat_id = msg.chat.id    
     bot = await app.get_chat_member(chat_id, BOT_ID)
     bot_permission = bot.privileges.can_restrict_members == True    
@@ -24,3 +25,8 @@ async def ban_all(_, msg):
                 pass
     else:
         await msg.reply_text("ᴇɪᴛʜᴇʀ ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴛʜᴇ ʀɪɢʜᴛ ᴛᴏ ʀᴇsᴛʀɪᴄᴛ ᴜsᴇʀs ᴏʀ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ɪɴ sᴜᴅᴏ ᴜsᴇʀs")
+       
+
+@app.on_callback_query(filters.regex("Splay"))
+async def stop_callback(_, query):
+    await query.message.delete()
