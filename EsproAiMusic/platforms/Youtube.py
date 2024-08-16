@@ -11,6 +11,13 @@ from youtubesearchpython.__future__ import VideosSearch
 from EsproAiMusic.utils.database import is_on_off
 from EsproAiMusic.utils.formatters import time_to_seconds
 
+def cookies():
+    cookie_dir = "EsproAiMusic/utils/cookies"
+    cookies_files = [f for f in os.listdir(cookie_dir) if f.endswith(".txt")]
+
+    cookie_file = os.path.join(cookie_dir, random.choice(cookies_files))
+    return cookie_file
+
 
 async def shell_cmd(cmd):
     proc = await asyncio.create_subprocess_shell(
