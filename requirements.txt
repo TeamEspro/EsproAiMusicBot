@@ -11,6 +11,7 @@ python-whois
 dnspython
 ffmpeg-python
 gitpython
+httpx[http2]
 hachoir
 Faker
 pydub
@@ -39,9 +40,10 @@ spotipy
 tgcrypto
 telegraph
 unidecode
+git+https://github.com/KurimuzonAkuma/pyrogram@dev
 yt-dlp
-youtube-search
-youtube-search-python
+git+https://github.com/alexmercerind/youtube-search-python@main
+git+https://github.com/joetats/youtube_search@master
 gtts
 git+https://github.com/AsmSafone/SafoneAPI
 lexica-api==1.5.1
