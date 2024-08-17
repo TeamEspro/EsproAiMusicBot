@@ -1,7 +1,7 @@
-from EsproAiMusic import app
+from EsproMusicBot import app
 from pyrogram import filters, enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from EsproAiMusic.utils.EsproAi_ban import admin_filter
+from EsproMusicBot.utils.EsproAi_ban import admin_filter
 
 
 BOT_ID = app.me.id  # Corrected this line

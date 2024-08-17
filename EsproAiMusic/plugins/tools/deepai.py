@@ -1,6 +1,6 @@
 import requests, config
 from pyrogram import filters
-from EsproAiMusic import app
+from EsproMusicBot import app
 from pyrogram.enums import ChatAction, ParseMode
 
 api_key ="995e3267-53f1-496e-82e3-39754eab99dc"

@@ -3,10 +3,10 @@ import asyncio
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from EsproAiMusic import YouTube, app
-from EsproAiMusic.core.call import EsproAi
-from EsproAiMusic.misc import SUDOERS, db
-from EsproAiMusic.utils.database import (
+from EsproMusicBot import YouTube, app
+from EsproMusicBot.core.call import EsproAi
+from EsproMusicBot.misc import SUDOERS, db
+from EsproMusicBot.utils.database import (
     get_active_chats,
     get_lang,
     get_upvote_count,
@@ -17,11 +17,11 @@ from EsproAiMusic.utils.database import (
     music_on,
     set_loop,
 )
-from EsproAiMusic.utils.decorators.language import languageCB
-from EsproAiMusic.utils.formatters import seconds_to_min
-from EsproAiMusic.utils.inline import close_markup, stream_markup, stream_markup_timer
-from EsproAiMusic.utils.stream.autoclear import auto_clean
-from EsproAiMusic.utils.thumbnails import get_thumb
+from EsproMusicBot.utils.decorators.language import languageCB
+from EsproMusicBot.utils.formatters import seconds_to_min
+from EsproMusicBot.utils.inline import close_markup, stream_markup, stream_markup_timer
+from EsproMusicBot.utils.stream.autoclear import auto_clean
+from EsproMusicBot.utils.thumbnails import get_thumb
 from config import (
     BANNED_USERS,
     SOUNCLOUD_IMG_URL,

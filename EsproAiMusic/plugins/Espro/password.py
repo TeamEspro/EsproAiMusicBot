@@ -1,6 +1,6 @@
 import random, os
 from pyrogram import Client, filters, enums 
-from EsproAiMusic import app
+from EsproMusicBot import app
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 

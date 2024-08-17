@@ -1,8 +1,8 @@
 from pyrogram import  filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from EsproAiMusic.utils.EsproAi_font import Fonts
-from EsproAiMusic import app
+from EsproMusicBot.utils.EsproAi_font import Fonts
+from EsproMusicBot import app
 
 @app.on_message(filters.command(["font", "fonts"]))
 async def style_buttons(c, m, cb=False):

@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 import whois
-from EsproAiMusic import app
+from EsproMusicBot import app
 
 def get_domain_hosting_info(domain_name):
     try:

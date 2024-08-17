@@ -1,8 +1,8 @@
-from EsproAiMusic.core.bot import EsproAi
-from EsproAiMusic.core.dir import dirr
-from EsproAiMusic.core.git import git
-from EsproAiMusic.core.userbot import Userbot
-from EsproAiMusic.misc import dbb, heroku
+from EsproMusicBot.core.bot import EsproAi
+from EsproMusicBot.core.dir import dirr
+from EsproMusicBot.core.git import git
+from EsproMusicBot.core.userbot import Userbot
+from EsproMusicBot.misc import dbb, heroku
 
 from SafoneAPI import SafoneAPI
 from .logging import LOGGER

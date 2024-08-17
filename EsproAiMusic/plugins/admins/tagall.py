@@ -1,4 +1,4 @@
-from EsproAiMusic import app 
+from EsproMusicBot import app 
 import asyncio
 import random
 from pyrogram import Client, filters

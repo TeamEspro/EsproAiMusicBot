@@ -1,5 +1,5 @@
-from EsproAiMusic.misc import db
-from EsproAiMusic.utils.database import get_assistant, get_authuser_names, get_cmode
+from EsproMusicBot.misc import db
+from EsproMusicBot.utils.database import get_assistant, get_authuser_names, get_cmode
 
 import asyncio
 import config
@@ -7,14 +7,14 @@ import random
 import asyncio
 from datetime import datetime
 from pyrogram.enums import ChatType
-from EsproAiMusic.core.call import EsproAi
-from EsproAiMusic.logging import LOGGER
+from EsproMusicBot.core.call import EsproAi
+from EsproMusicBot.logging import LOGGER
 from config import *
 from pyrogram import filters
-from EsproAiMusic import app 
-from EsproAiMusic import app, userbot
-from EsproAiMusic.core.userbot import Client
-from EsproAiMusic.misc import SUDOERS
+from EsproMusicBot import app 
+from EsproMusicBot import app, userbot
+from EsproMusicBot.core.userbot import Client
+from EsproMusicBot.misc import SUDOERS
 
 
 

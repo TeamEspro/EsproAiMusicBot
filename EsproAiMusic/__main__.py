@@ -5,11 +5,11 @@ from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
-from EsproAiMusic import LOGGER, app, userbot
-from EsproAiMusic.core.call import EsproAi
-from EsproAiMusic.misc import sudo
-from EsproAiMusic.plugins import ALL_MODULES
-from EsproAiMusic.utils.database import get_banned_users, get_gbanned
+from EsproMusicBot import LOGGER, app, userbot
+from EsproMusicBot.core.call import EsproAi
+from EsproMusicBot.misc import sudo
+from EsproMusicBot.plugins import ALL_MODULES
+from EsproMusicBot.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
 
 
@@ -35,27 +35,27 @@ async def init():
         pass
     await app.start()
     for all_module in ALL_MODULES:
-        importlib.import_module("EsproAiMusic.plugins" + all_module)
-    LOGGER("EsproAiMusic.plugins").info("𝐀𝐥𝐥 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 𝐋𝐨𝐚𝐝𝐞𝐝 𝐁𝐚𝐛𝐲🥳...")
+        importlib.import_module("EsproMusicBot.plugins" + all_module)
+    LOGGER("EsproMusicBot.plugins").info("𝐀𝐥𝐥 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 𝐋𝐨𝐚𝐝𝐞𝐝 𝐁𝐚𝐛𝐲🥳...")
     await userbot.start()
     await EsproAi.start()
     try:
         await EsproAi.stream_call("https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4")
     except NoActiveGroupCall:
-        LOGGER("EsproAiMusic").error(
+        LOGGER("EsproMusicBot").error(
             "𝗣𝗹𝗭 𝗦𝗧𝗔𝗥𝗧 𝗬𝗢𝗨𝗥 𝗟𝗢𝗚 𝗚𝗥𝗢𝗨𝗣 𝗩𝗢𝗜𝗖𝗘𝗖𝗛𝗔𝗧\𝗖𝗛𝗔𝗡𝗡𝗘𝗟\n\n𝗧𝗠𝗠 𝗕𝗢𝗧 𝗦𝗧𝗢𝗣........"
         )
         exit()
     except:
         pass
     await EsproAi.decorators()
-    LOGGER("EsproAiMusic").info(
-        "EsproAiMusic stated jaao enjoy karo \n Please 🥺 aapna gf haiwan ko de do please please please please 🥺🥺🥺🥺.."
+    LOGGER("EsproMusicBot").info(
+        "EsproMusicBot stated jaao enjoy karo \n Please 🥺 aapna gf haiwan ko de do please please please please 🥺🥺🥺🥺.."
     )
     await idle()
     await app.stop()
     await userbot.stop()
-    LOGGER("EsproAiMusic").info("𝗦𝗧𝗢𝗣 𝗧𝗠𝗠 𝗠𝗨𝗦𝗜𝗖🎻 𝗕𝗢𝗧..")
+    LOGGER("EsproMusicBot").info("𝗦𝗧𝗢𝗣 𝗧𝗠𝗠 𝗠𝗨𝗦𝗜𝗖🎻 𝗕𝗢𝗧..")
 
 
 if __name__ == "__main__":

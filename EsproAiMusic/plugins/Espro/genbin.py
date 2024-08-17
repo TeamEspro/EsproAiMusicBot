@@ -28,7 +28,7 @@ SOFTWARE.
 
 from pyrogram import Client, filters
 import random
-from EsproAiMusic import app
+from EsproMusicBot import app
 
 # Constants
 VALID_PREFIXES = [4, 5, 6,3]  # VISA starts with 4, ritikCard with 5, Discover with 6

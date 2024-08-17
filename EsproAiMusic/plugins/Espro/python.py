@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 import traceback
-from EsproAiMusic import app
+from EsproMusicBot import app
 
 
 

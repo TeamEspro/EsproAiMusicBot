@@ -1,7 +1,7 @@
 from io import BytesIO
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from EsproAiMusic import app
+from EsproMusicBot import app
 from httpx import AsyncClient, Timeout
 # -----------------------------------------------------------------
 fetch = AsyncClient(

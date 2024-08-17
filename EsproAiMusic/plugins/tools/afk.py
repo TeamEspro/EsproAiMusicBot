@@ -3,9 +3,9 @@ from config import BOT_USERNAME
 from pyrogram.enums import MessageEntityType
 from pyrogram import filters
 from pyrogram.types import Message
-from EsproAiMusic import app
-from EsproAiMusic.mongo.readable_time import get_readable_time
-from EsproAiMusic.mongo.afkdb import add_afk, is_afk, remove_afk
+from EsproMusicBot import app
+from EsproMusicBot.mongo.readable_time import get_readable_time
+from EsproMusicBot.mongo.afkdb import add_afk, is_afk, remove_afk
 
 
 

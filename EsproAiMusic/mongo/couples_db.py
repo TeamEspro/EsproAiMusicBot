@@ -1,4 +1,4 @@
-from EsproAiMusic.utils.mongo import db
+from EsproMusicBot.utils.mongo import db
 
 coupledb = db.couple
 

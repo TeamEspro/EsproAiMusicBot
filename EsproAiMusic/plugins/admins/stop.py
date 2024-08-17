@@ -1,11 +1,11 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from EsproAiMusic import app
-from EsproAiMusic.core.call import EsproAi
-from EsproAiMusic.utils.database import set_loop
-from EsproAiMusic.utils.decorators import AdminRightsCheck
-from EsproAiMusic.utils.inline import close_markup
+from EsproMusicBot import app
+from EsproMusicBot.core.call import EsproAi
+from EsproMusicBot.utils.database import set_loop
+from EsproMusicBot.utils.decorators import AdminRightsCheck
+from EsproMusicBot.utils.inline import close_markup
 from config import BANNED_USERS
 
 

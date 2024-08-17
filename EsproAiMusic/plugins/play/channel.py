@@ -2,9 +2,9 @@ from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter, ChatMemberStatus, ChatType
 from pyrogram.types import Message
 
-from EsproAiMusic import app
-from EsproAiMusic.utils.database import set_cmode
-from EsproAiMusic.utils.decorators.admins import AdminActual
+from EsproMusicBot import app
+from EsproMusicBot.utils.database import set_cmode
+from EsproMusicBot.utils.decorators.admins import AdminActual
 from config import BANNED_USERS
 
 

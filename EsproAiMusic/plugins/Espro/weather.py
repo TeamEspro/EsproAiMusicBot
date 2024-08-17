@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from EsproAiMusic import app
+from EsproMusicBot import app
 
 
 @app.on_message(filters.command("weather"))

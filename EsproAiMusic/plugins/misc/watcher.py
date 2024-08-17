@@ -1,8 +1,8 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from EsproAiMusic import app
-from EsproAiMusic.core.call import EsproAi
+from EsproMusicBot import app
+from EsproMusicBot.core.call import EsproAi
 
 welcome = 20
 close = 30

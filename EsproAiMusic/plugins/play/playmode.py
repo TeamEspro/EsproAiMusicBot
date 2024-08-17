@@ -1,10 +1,10 @@
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, Message
 
-from EsproAiMusic import app
-from EsproAiMusic.utils.database import get_playmode, get_playtype, is_nonadmin_chat
-from EsproAiMusic.utils.decorators import language
-from EsproAiMusic.utils.inline.settings import playmode_users_markup
+from EsproMusicBot import app
+from EsproMusicBot.utils.database import get_playmode, get_playtype, is_nonadmin_chat
+from EsproMusicBot.utils.decorators import language
+from EsproMusicBot.utils.inline.settings import playmode_users_markup
 from config import BANNED_USERS
 
 

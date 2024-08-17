@@ -1,10 +1,10 @@
 import requests
 import random
-from EsproAiMusic import app, userbot
-from EsproAiMusic.misc import SUDOERS
+from EsproMusicBot import app, userbot
+from EsproMusicBot.misc import SUDOERS
 from pyrogram import * 
 from pyrogram.types import *
-from EsproAiMusic.utils.EsproAi_ban import admin_filter
+from EsproMusicBot.utils.EsproAi_ban import admin_filter
 
 
 

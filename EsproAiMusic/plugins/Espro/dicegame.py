@@ -1,7 +1,7 @@
 from pyrogram import Client, enums, filters
 #from config import *
 import asyncio
-from EsproAiMusic import app as app
+from EsproMusicBot import app as app
 
 from pyrogram.handlers import MessageHandler
 

@@ -7,10 +7,10 @@ from PIL import Image
 from pyrogram import filters
 from pyrogram.types import Message
 
-from EsproAiMusic import app
-from EsproAiMusic.utils.errors import capture_err
+from EsproMusicBot import app
+from EsproMusicBot.utils.errors import capture_err
 
-from EsproAiMusic.core.sections import section
+from EsproMusicBot.core.sections import section
 
 
 async def convert(

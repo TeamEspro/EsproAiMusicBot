@@ -4,10 +4,10 @@ from pyrogram import filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message
 
-from EsproAiMusic import app
-from EsproAiMusic.misc import SUDOERS
-from EsproAiMusic.utils import get_readable_time
-from EsproAiMusic.utils.database import (
+from EsproMusicBot import app
+from EsproMusicBot.misc import SUDOERS
+from EsproMusicBot.utils import get_readable_time
+from EsproMusicBot.utils.database import (
     add_banned_user,
     get_banned_count,
     get_banned_users,
@@ -15,8 +15,8 @@ from EsproAiMusic.utils.database import (
     is_banned_user,
     remove_banned_user,
 )
-from EsproAiMusic.utils.decorators.language import language
-from EsproAiMusic.utils.extraction import extract_user
+from EsproMusicBot.utils.decorators.language import language
+from EsproMusicBot.utils.extraction import extract_user
 from config import BANNED_USERS
 
 

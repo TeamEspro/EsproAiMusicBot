@@ -14,17 +14,17 @@ from pyrogram.errors import (
     UserIsBlocked,
 )
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from EsproAiMusic import app
+from EsproMusicBot import app
 from config import BOT_USERNAME
-from EsproAiMusic.utils.errors import capture_err
+from EsproMusicBot.utils.errors import capture_err
 
-from EsproAiMusic.utils.files import (
+from EsproMusicBot.utils.files import (
     get_document_from_file_id,
     resize_file_to_sticker_size,
     upload_document,
 )
 
-from EsproAiMusic.utils.stickerset import (
+from EsproMusicBot.utils.stickerset import (
     add_sticker_to_set,
     create_sticker,
     create_sticker_set,

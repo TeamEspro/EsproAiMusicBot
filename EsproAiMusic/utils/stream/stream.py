@@ -5,15 +5,15 @@ from typing import Union
 from pyrogram.types import InlineKeyboardMarkup
 
 import config
-from EsproAiMusic import Carbon, YouTube, app
-from EsproAiMusic.core.call import EsproAi
-from EsproAiMusic.misc import db
-from EsproAiMusic.utils.database import add_active_video_chat, is_active_chat
-from EsproAiMusic.utils.exceptions import AssistantErr
-from EsproAiMusic.utils.inline import aq_markup, close_markup, stream_markup
-from EsproAiMusic.utils.pastebin import EsproAiBin
-from EsproAiMusic.utils.stream.queue import put_queue, put_queue_index
-from EsproAiMusic.utils.thumbnails import get_thumb
+from EsproMusicBot import Carbon, YouTube, app
+from EsproMusicBot.core.call import EsproAi
+from EsproMusicBot.misc import db
+from EsproMusicBot.utils.database import add_active_video_chat, is_active_chat
+from EsproMusicBot.utils.exceptions import AssistantErr
+from EsproMusicBot.utils.inline import aq_markup, close_markup, stream_markup
+from EsproMusicBot.utils.pastebin import EsproAiBin
+from EsproMusicBot.utils.stream.queue import put_queue, put_queue_index
+from EsproMusicBot.utils.thumbnails import get_thumb
 
 
 async def stream(

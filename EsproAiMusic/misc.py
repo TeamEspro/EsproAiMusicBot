@@ -5,7 +5,7 @@ import heroku3
 from pyrogram import filters
 
 import config
-from EsproAiMusic.core.mongo import mongodb
+from EsproMusicBot.core.mongo import mongodb
 
 from .logging import LOGGER
 

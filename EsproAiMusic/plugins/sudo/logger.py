@@ -1,9 +1,9 @@
 from pyrogram import filters
 
-from EsproAiMusic import app
-from EsproAiMusic.misc import SUDOERS
-from EsproAiMusic.utils.database import add_off, add_on
-from EsproAiMusic.utils.decorators.language import language
+from EsproMusicBot import app
+from EsproMusicBot.misc import SUDOERS
+from EsproMusicBot.utils.database import add_off, add_on
+from EsproMusicBot.utils.decorators.language import language
 
 
 @app.on_message(filters.command(["logger"]) & SUDOERS)

@@ -1,6 +1,6 @@
 import aiohttp
 from io import BytesIO
-from EsproAiMusic import app
+from EsproMusicBot import app
 from pyrogram import filters
 
 

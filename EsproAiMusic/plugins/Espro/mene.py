@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 import requests
-from EsproAiMusic import app 
+from EsproMusicBot import app 
 
 # Define a command handler for the /meme command
 @app.on_message(filters.command("meme"))

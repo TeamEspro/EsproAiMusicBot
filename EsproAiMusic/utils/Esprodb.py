@@ -5,10 +5,10 @@ from pyrogram import Client
 from pyrogram.types import Message
 from pyrogram.enums import ChatMemberStatus, ChatType
 
-from EsproAiMusic import app
+from EsproMusicBot import app
 
 from config import OWNER_ID, BOT_USERNAME
-from EsproAiMusic.misc import SUDOERS
+from EsproMusicBot.misc import SUDOERS
 
 COMMANDERS = [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]
 

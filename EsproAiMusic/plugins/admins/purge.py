@@ -3,8 +3,8 @@ from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.errors import MessageDeleteForbidden, RPCError
 from pyrogram.types import Message
-from EsproAiMusic.utils.EsproAi_ban import admin_filter
-from EsproAiMusic import app
+from EsproMusicBot.utils.EsproAi_ban import admin_filter
+from EsproMusicBot import app
 
 
 @app.on_message(filters.command("purge") & admin_filter)

@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 import random
 import requests
-from EsproAiMusic import app 
+from EsproMusicBot import app 
 
 SUPPORT_CHAT = "EsproSupport"
 

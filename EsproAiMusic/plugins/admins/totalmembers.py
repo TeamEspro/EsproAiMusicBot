@@ -1,8 +1,8 @@
-from EsproAiMusic.utils.EsproAi_ban import admin_filter
+from EsproMusicBot.utils.EsproAi_ban import admin_filter
 import os
 import csv
 from pyrogram import Client, filters
-from EsproAiMusic import app
+from EsproMusicBot import app
 
 @app.on_message(filters.command("user") & admin_filter)
 def user_command(client, message):

@@ -10,15 +10,15 @@ from git.exc import GitCommandError, InvalidGitRepositoryError
 from pyrogram import filters
 
 import config
-from EsproAiMusic import app
-from EsproAiMusic.misc import HAPP, SUDOERS, XCB
-from EsproAiMusic.utils.database import (
+from EsproMusicBot import app
+from EsproMusicBot.misc import HAPP, SUDOERS, XCB
+from EsproMusicBot.utils.database import (
     get_active_chats,
     remove_active_chat,
     remove_active_video_chat,
 )
-from EsproAiMusic.utils.decorators.language import language
-from EsproAiMusic.utils.pastebin import EsproAiBin
+from EsproMusicBot.utils.decorators.language import language
+from EsproMusicBot.utils.pastebin import EsproAiBin
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 

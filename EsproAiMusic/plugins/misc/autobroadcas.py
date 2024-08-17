@@ -1,9 +1,9 @@
 import asyncio
 import datetime
-from EsproAiMusic import app
+from EsproMusicBot import app
 from pyrogram import Client
 from config import START_IMG_URL
-from EsproAiMusic.utils.database import get_served_chats
+from EsproMusicBot.utils.database import get_served_chats
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 

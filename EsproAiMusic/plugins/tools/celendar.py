@@ -3,7 +3,7 @@ from PIL import Image, ImageEnhance
 from io import BytesIO
 import aiohttp
 import calendar
-from EsproAiMusic import app
+from EsproMusicBot import app
 
 async def make_carbon(code):
     url = "https://carbonara.solopov.dev/api/cook"

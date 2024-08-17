@@ -1,10 +1,10 @@
-from EsproAiMusic import app
+from EsproMusicBot import app
 from config import BOT_USERNAME
 from pyrogram import filters
-from EsproAiMusic.utils.EsproAi_ban import admin_filter
-from EsproAiMusic.mongo.notesdb import *
-from EsproAiMusic.utils.notes_func import GetNoteMessage, exceNoteMessageSender, privateNote_and_admin_checker
-from EsproAiMusic.utils.Esprodb import user_admin
+from EsproMusicBot.utils.EsproAi_ban import admin_filter
+from EsproMusicBot.mongo.notesdb import *
+from EsproMusicBot.utils.notes_func import GetNoteMessage, exceNoteMessageSender, privateNote_and_admin_checker
+from EsproMusicBot.utils.Esprodb import user_admin
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup , Message , CallbackQuery
 from pyrogram.enums import ChatMemberStatus
 
@@ -82,7 +82,7 @@ async def PrivateNote(client, message):
     else:
         if await is_pnote_on(chat_id):
             await message.reply(
-                "Your notes are currently being sent in private. EsproAiMusic will send a small note with a button which redirects to a private chat.",
+                "Your notes are currently being sent in private. EsproMusicBot will send a small note with a button which redirects to a private chat.",
                 quote=True
             )
         else:

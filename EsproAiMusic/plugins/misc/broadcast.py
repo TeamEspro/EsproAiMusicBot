@@ -4,17 +4,17 @@ from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter
 from pyrogram.errors import FloodWait
 
-from EsproAiMusic import app
-from EsproAiMusic.misc import SUDOERS
-from EsproAiMusic.utils.database import (
+from EsproMusicBot import app
+from EsproMusicBot.misc import SUDOERS
+from EsproMusicBot.utils.database import (
     get_active_chats,
     get_authuser_names,
     get_client,
     get_served_chats,
     get_served_users,
 )
-from EsproAiMusic.utils.decorators.language import language
-from EsproAiMusic.utils.formatters import alpha_to_int
+from EsproMusicBot.utils.decorators.language import language
+from EsproMusicBot.utils.formatters import alpha_to_int
 from config import adminlist
 
 IS_BROADCASTING = False
@@ -117,7 +117,7 @@ async def braodcast_message(client, message, _):
     if "-assistant" in message.text:
         aw = await message.reply_text(_["broad_5"])
         text = _["broad_6"]
-        from EsproAiMusic.core.userbot import assistants
+        from EsproMusicBot.core.userbot import assistants
 
         for num in assistants:
             sent = 0

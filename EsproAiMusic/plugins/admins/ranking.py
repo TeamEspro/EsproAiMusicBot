@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pymongo import MongoClient
-from EsproAiMusic import app
+from EsproMusicBot import app
 from config import MONGO_DB_URI
 import json
 from json import loads

@@ -2,13 +2,13 @@ from pyrogram import filters
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.types import Message
 from strings import get_string, helpers
-from EsproAiMusic import app
+from EsproMusicBot import app
 from pyrogram.types import InputMediaVideo
-from EsproAiMusic.misc import SUDOERS
-from EsproAiMusic.utils.database import add_sudo, remove_sudo
-from EsproAiMusic.utils.decorators.language import language
-from EsproAiMusic.utils.extraction import extract_user
-from EsproAiMusic.utils.inline import close_markup
+from EsproMusicBot.misc import SUDOERS
+from EsproMusicBot.utils.database import add_sudo, remove_sudo
+from EsproMusicBot.utils.decorators.language import language
+from EsproMusicBot.utils.extraction import extract_user
+from EsproMusicBot.utils.inline import close_markup
 from config import BANNED_USERS, OWNER_ID
 
 

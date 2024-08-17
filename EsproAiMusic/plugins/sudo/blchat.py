@@ -1,10 +1,10 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from EsproAiMusic import app
-from EsproAiMusic.misc import SUDOERS
-from EsproAiMusic.utils.database import blacklist_chat, blacklisted_chats, whitelist_chat
-from EsproAiMusic.utils.decorators.language import language
+from EsproMusicBot import app
+from EsproMusicBot.misc import SUDOERS
+from EsproMusicBot.utils.database import blacklist_chat, blacklisted_chats, whitelist_chat
+from EsproMusicBot.utils.decorators.language import language
 from config import BANNED_USERS
 
 

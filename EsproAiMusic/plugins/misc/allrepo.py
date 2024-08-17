@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 import requests
-from EsproAiMusic import app
+from EsproMusicBot import app
 
 # Function to chunk the repository info into smaller parts
 def chunk_string(text, chunk_size):

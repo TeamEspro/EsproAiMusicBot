@@ -1,9 +1,9 @@
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from EsproAiMusic import app
-from EsproAiMusic.misc import SUDOERS, db
-from EsproAiMusic.utils.database import (
+from EsproMusicBot import app
+from EsproMusicBot.misc import SUDOERS, db
+from EsproMusicBot.utils.database import (
     get_authuser_names,
     get_cmode,
     get_lang,

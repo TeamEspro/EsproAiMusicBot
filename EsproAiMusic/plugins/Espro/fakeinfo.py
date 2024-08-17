@@ -25,7 +25,7 @@ SOFTWARE.***
 import requests
 from pyrogram import Client
 from pyrogram import filters
-from EsproAiMusic import app
+from EsproMusicBot import app
 
 
 random_user_api_url = 'https://randomuser.me/api/'

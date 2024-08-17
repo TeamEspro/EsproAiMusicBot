@@ -1,13 +1,13 @@
 from pyrogram import filters
 import requests, random
 from bs4 import BeautifulSoup
-from EsproAiMusic import app
+from EsproMusicBot import app
 import pytgcalls
 import os, yt_dlp 
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pytgcalls.types import AudioVideoPiped
-from EsproAiMusic.plugins.play import play
-from EsproAiMusic.plugins.play.pornplay import play
+from EsproMusicBot.plugins.play import play
+from EsproMusicBot.plugins.play.pornplay import play
 
 #
 #####
