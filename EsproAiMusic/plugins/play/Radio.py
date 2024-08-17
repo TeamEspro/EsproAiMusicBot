@@ -12,17 +12,17 @@ from pyrogram.types import Message
 
 from config import BANNED_USERS, adminlist
 from strings import get_string
-from EsproMusicBot import app
-from EsproMusicBot.misc import SUDOERS
-from EsproMusicBot.utils.database import (
+from EsproAiMusic import app
+from EsproAiMusic.misc import SUDOERS
+from EsproAiMusic.utils.database import (
     get_assistant,
     get_cmode,
     get_lang,
     get_playmode,
     get_playtype,
 )
-from EsproMusicBot.utils.logger import play_logs
-from EsproMusicBot.utils.stream.stream import stream
+from EsproAiMusic.utils.logger import play_logs
+from EsproAiMusic.utils.stream.stream import stream
 
 RADIO_STATION = {
     "air bilaspur": "http://air.pc.cdn.bitgravity.com/air/live/pbaudio110/playlist.m3u8",

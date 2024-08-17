@@ -1,5 +1,5 @@
-from EsproMusicBot import app
-from EsproMusicBot.utils.database import get_cmode
+from EsproAiMusic import app
+from EsproAiMusic.utils.database import get_cmode
 
 
 async def get_channeplayCB(_, command, CallbackQuery):

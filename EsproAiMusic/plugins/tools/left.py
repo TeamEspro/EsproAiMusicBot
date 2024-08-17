@@ -1,4 +1,4 @@
-from EsproMusicBot import app
+from EsproAiMusic import app
 from pyrogram import Client, filters
 from pyrogram.errors import RPCError
 from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboardButton
@@ -51,8 +51,8 @@ async def get_userinfo_img(
 
 # --------------------------------------------------------------------------------- #
 
-bg_path = "EsproMusicBot/assets/userinfo.png"
-font_path = "EsproMusicBot/assets/hiroko.ttf"
+bg_path = "EsproAiMusic/assets/userinfo.png"
+font_path = "EsproAiMusic/assets/hiroko.ttf"
 
 # --------------------------------------------------------------------------------- #
 

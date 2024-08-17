@@ -6,12 +6,12 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtubesearchpython.__future__ import VideosSearch
 
 import config
-from EsproMusicBot import app
-from EsproMusicBot.misc import _boot_
-from EsproMusicBot.plugins.sudo.sudoers import sudoers_list
-from EsproMusicBot.utils.database import get_served_chats, get_served_users, get_sudoers
-from EsproMusicBot.utils import bot_sys_stats
-from EsproMusicBot.utils.database import (
+from EsproAiMusic import app
+from EsproAiMusic.misc import _boot_
+from EsproAiMusic.plugins.sudo.sudoers import sudoers_list
+from EsproAiMusic.utils.database import get_served_chats, get_served_users, get_sudoers
+from EsproAiMusic.utils import bot_sys_stats
+from EsproAiMusic.utils.database import (
     add_served_chat,
     add_served_user,
     blacklisted_chats,
@@ -19,9 +19,9 @@ from EsproMusicBot.utils.database import (
     is_banned_user,
     is_on_off,
 )
-from EsproMusicBot.utils.decorators.language import LanguageStart
-from EsproMusicBot.utils.formatters import get_readable_time
-from EsproMusicBot.utils.inline import help_pannel, private_panel, start_panel
+from EsproAiMusic.utils.decorators.language import LanguageStart
+from EsproAiMusic.utils.formatters import get_readable_time
+from EsproAiMusic.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS, AMOP
 from strings import get_string
 

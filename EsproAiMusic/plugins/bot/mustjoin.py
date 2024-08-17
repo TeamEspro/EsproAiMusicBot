@@ -2,7 +2,7 @@ import random
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
-from EsproMusicBot import app
+from EsproAiMusic import app
 
 #--------------------------
 

@@ -2,14 +2,14 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, Message
 
 import config
-from EsproMusicBot import YouTube, app
-from EsproMusicBot.core.call import EsproAi
-from EsproMusicBot.misc import db
-from EsproMusicBot.utils.database import get_loop
-from EsproMusicBot.utils.decorators import AdminRightsCheck
-from EsproMusicBot.utils.inline import close_markup, stream_markup
-from EsproMusicBot.utils.stream.autoclear import auto_clean
-from EsproMusicBot.utils.thumbnails import get_thumb
+from EsproAiMusic import YouTube, app
+from EsproAiMusic.core.call import EsproAi
+from EsproAiMusic.misc import db
+from EsproAiMusic.utils.database import get_loop
+from EsproAiMusic.utils.decorators import AdminRightsCheck
+from EsproAiMusic.utils.inline import close_markup, stream_markup
+from EsproAiMusic.utils.stream.autoclear import auto_clean
+from EsproAiMusic.utils.thumbnails import get_thumb
 from config import BANNED_USERS
 
 

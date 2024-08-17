@@ -1,6 +1,6 @@
 from typing import Union
-from EsproMusicBot import app
-from EsproMusicBot.utils.formatters import time_to_seconds
+from EsproAiMusic import app
+from EsproAiMusic.utils.formatters import time_to_seconds
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 

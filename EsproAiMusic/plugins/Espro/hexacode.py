@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from EsproMusicBot import app
+from EsproAiMusic import app
 from config import BOT_USERNAME
 
 

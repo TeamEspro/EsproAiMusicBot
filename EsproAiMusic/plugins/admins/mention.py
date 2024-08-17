@@ -1,8 +1,8 @@
 import asyncio
 from pyrogram.enums import ChatType, ChatMemberStatus
-from EsproMusicBot import app
+from EsproAiMusic import app
 from pyrogram import filters
-from EsproMusicBot.utils.EsproAi_ban import admin_filter
+from EsproAiMusic.utils.EsproAi_ban import admin_filter
 
 
 

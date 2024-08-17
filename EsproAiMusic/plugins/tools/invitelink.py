@@ -1,11 +1,11 @@
-from EsproMusicBot import app
+from EsproAiMusic import app
 from pyrogram import Client, filters
 from pyrogram.errors import ChatIdInvalid
 from pyrogram.errors import ChatAdminRequired, ChatNotModified, ChatIdInvalid, FloodWait, InviteHashExpired, UserNotParticipant
 import os
 import json
 from pyrogram.types import Message
-from EsproMusicBot.misc import SUDOERS
+from EsproAiMusic.misc import SUDOERS
 
 
 

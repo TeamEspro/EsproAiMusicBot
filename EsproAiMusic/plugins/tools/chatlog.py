@@ -4,7 +4,7 @@ from pyrogram.types import Message
 from pyrogram import filters
 from pyrogram.types import(InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, InputMediaVideo, Message)
 from config import LOGGER_ID as LOG_GROUP_ID
-from EsproMusicBot import app 
+from EsproAiMusic import app 
 from pyrogram.errors import RPCError
 from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboardButton
 from os import environ

@@ -1,6 +1,6 @@
 from telegraph import upload_file
 from pyrogram import filters
-from EsproMusicBot import app
+from EsproAiMusic import app
 from pyrogram.types import InputMediaPhoto
 
 

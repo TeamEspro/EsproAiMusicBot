@@ -1,9 +1,9 @@
 from pyrogram import filters
 import random
-from EsproMusicBot import YouTube, app
-from EsproMusicBot.utils.channelplay import get_channeplayCB
-from EsproMusicBot.utils.decorators.language import languageCB
-from EsproMusicBot.utils.stream.stream import stream
+from EsproAiMusic import YouTube, app
+from EsproAiMusic.utils.channelplay import get_channeplayCB
+from EsproAiMusic.utils.decorators.language import languageCB
+from EsproAiMusic.utils.stream.stream import stream
 from config import BANNED_USERS, AMBOT
 
 

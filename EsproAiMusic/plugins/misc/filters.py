@@ -1,10 +1,10 @@
 import re
-from EsproMusicBot import app
+from EsproAiMusic import app
 from config import BOT_USERNAME
-from EsproMusicBot.utils.EsproAi_ban import admin_filter
-from EsproMusicBot.mongo.filtersdb import *
-from EsproMusicBot.utils.filters_func import GetFIlterMessage, get_text_reason, SendFilterMessage
-from EsproMusicBot.utils.Esprodb import user_admin
+from EsproAiMusic.utils.EsproAi_ban import admin_filter
+from EsproAiMusic.mongo.filtersdb import *
+from EsproAiMusic.utils.filters_func import GetFIlterMessage, get_text_reason, SendFilterMessage
+from EsproAiMusic.utils.Esprodb import user_admin
 from pyrogram import filters
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup

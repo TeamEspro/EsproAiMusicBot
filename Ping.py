@@ -1,11 +1,11 @@
 from datetime import datetime
 from pyrogram import filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from EsproMusicBot import app
-from EsproMusicBot.core.call import EsproAi
-from EsproMusicBot.utils import bot_sys_stats
-from EsproMusicBot.utils.decorators.language import language
-from EsproMusicBot.utils.inline import supp_markup
+from EsproAiMusic import app
+from EsproAiMusic.core.call import EsproAi
+from EsproAiMusic.utils import bot_sys_stats
+from EsproAiMusic.utils.decorators.language import language
+from EsproAiMusic.utils.inline import supp_markup
 from config import BANNED_USERS
 import aiohttp
 import asyncio

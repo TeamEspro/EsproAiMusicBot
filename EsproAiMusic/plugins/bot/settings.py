@@ -8,8 +8,8 @@ from pyrogram.types import (
     Message,
 )
 
-from EsproMusicBot import app
-from EsproMusicBot.utils.database import (
+from EsproAiMusic import app
+from EsproAiMusic.utils.database import (
     add_nonadmin_chat,
     get_authuser,
     get_authuser_names,
@@ -25,15 +25,15 @@ from EsproMusicBot.utils.database import (
     skip_off,
     skip_on,
 )
-from EsproMusicBot.utils.decorators.admins import ActualAdminCB
-from EsproMusicBot.utils.decorators.language import language, languageCB
-from EsproMusicBot.utils.inline.settings import (
+from EsproAiMusic.utils.decorators.admins import ActualAdminCB
+from EsproAiMusic.utils.decorators.language import language, languageCB
+from EsproAiMusic.utils.inline.settings import (
     auth_users_markup,
     playmode_users_markup,
     setting_markup,
     vote_mode_markup,
 )
-from EsproMusicBot.utils.inline.start import private_panel
+from EsproAiMusic.utils.inline.start import private_panel
 from config import BANNED_USERS, OWNER_ID
 
 

@@ -1,7 +1,7 @@
 import math
 from pyrogram.types import InlineKeyboardButton
-from EsproMusicBot import app
-from EsproMusicBot.utils.formatters import time_to_seconds
+from EsproAiMusic import app
+from EsproAiMusic.utils.formatters import time_to_seconds
 
 
 def track_markup(_, videoid, user_id, channel, fplay):

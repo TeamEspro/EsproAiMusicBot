@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 import requests
-from EsproMusicBot import app
+from EsproAiMusic import app
 
 waifu_api_url = 'https://api.waifu.im/search'
 

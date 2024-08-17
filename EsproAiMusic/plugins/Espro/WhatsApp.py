@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from EsproMusicBot import app 
+from EsproAiMusic import app 
 
 # Command to generate a direct WhatsApp link
 @app.on_message(filters.command("WhatsApp"))

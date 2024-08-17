@@ -1,6 +1,6 @@
 import random, os
 from pyrogram import Client, filters, enums 
-from EsproMusicBot import app
+from EsproAiMusic import app
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
@@ -16,5 +16,5 @@ async def password(bot, update):
     limit = int(qw)
     random_value = "".join(random.sample(password, limit))
     txt = f"<b>Lɪᴍɪᴛ:</b> {str(limit)} \n<b>Pᴀꜱꜱᴡᴏʀᴅ: <code>{random_value}</code>"
-    btn = InlineKeyboardMarkup([[InlineKeyboardButton('𝗔𝗗𝗗 𝗠𝗘', url='https://t.me/EsproMusicBot?startgroup=true')]])
+    btn = InlineKeyboardMarkup([[InlineKeyboardButton('𝗔𝗗𝗗 𝗠𝗘', url='https://t.me/EsproAiMusic?startgroup=true')]])
     await message.edit_text(text=txt, reply_markup=btn, parse_mode=enums.ParseMode.HTML)

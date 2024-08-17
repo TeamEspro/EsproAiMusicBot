@@ -1,4 +1,4 @@
-from EsproMusicBot import app
+from EsproAiMusic import app
 from pyrogram import Client, filters
 
 from pyrogram.enums import ParseMode

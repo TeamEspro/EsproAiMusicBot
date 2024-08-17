@@ -7,8 +7,8 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Voice
 import aiohttp
 
 import config
-from EsproMusicBot import app
-from EsproMusicBot.utils.formatters import (
+from EsproAiMusic import app
+from EsproAiMusic.utils.formatters import (
     check_duration,
     convert_bytes,
     get_readable_time,

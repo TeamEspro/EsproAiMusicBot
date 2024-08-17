@@ -1,13 +1,13 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from EsproMusicBot import app
-from EsproMusicBot.core.call import EsproAi
-from EsproMusicBot.misc import SUDOERS, db
-from EsproMusicBot.utils import AdminRightsCheck
-from EsproMusicBot.utils.database import is_active_chat, is_nonadmin_chat
-from EsproMusicBot.utils.decorators.language import languageCB
-from EsproMusicBot.utils.inline import close_markup, speed_markup
+from EsproAiMusic import app
+from EsproAiMusic.core.call import EsproAi
+from EsproAiMusic.misc import SUDOERS, db
+from EsproAiMusic.utils import AdminRightsCheck
+from EsproAiMusic.utils.database import is_active_chat, is_nonadmin_chat
+from EsproAiMusic.utils.decorators.language import languageCB
+from EsproAiMusic.utils.inline import close_markup, speed_markup
 from config import BANNED_USERS, adminlist
 
 checker = []

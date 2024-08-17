@@ -9,9 +9,9 @@ from pyrogram.errors import (
 )
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from EsproMusicBot import YouTube, app
-from EsproMusicBot.misc import SUDOERS
-from EsproMusicBot.utils.database import (
+from EsproAiMusic import YouTube, app
+from EsproAiMusic.misc import SUDOERS
+from EsproAiMusic.utils.database import (
     get_assistant,
     get_cmode,
     get_lang,
@@ -20,7 +20,7 @@ from EsproMusicBot.utils.database import (
     is_active_chat,
     is_maintenance,
 )
-from EsproMusicBot.utils.inline import botplaylist_markup
+from EsproAiMusic.utils.inline import botplaylist_markup
 from config import PLAYLIST_IMG_URL, SUPPORT_CHAT, adminlist
 from strings import get_string
 

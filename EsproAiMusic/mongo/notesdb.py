@@ -1,6 +1,6 @@
-from EsproMusicBot.utils.mongo import db
+from EsproAiMusic.utils.mongo import db
 
-#from EsproMusicBot.mongo import *# back...............
+#from EsproAiMusic.mongo import *# back...............
 
 notes = db.notes["notes"]
 

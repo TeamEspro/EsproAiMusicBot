@@ -1,5 +1,5 @@
-from EsproMusicBot.misc import SUDOERS
-from EsproMusicBot.utils.database import get_lang, is_maintenance
+from EsproAiMusic.misc import SUDOERS
+from EsproAiMusic.utils.database import get_lang, is_maintenance
 from strings import get_string
 
 

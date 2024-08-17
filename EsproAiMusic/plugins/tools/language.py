@@ -2,9 +2,9 @@ from pykeyboard import InlineKeyboard
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, Message
 
-from EsproMusicBot import app
-from EsproMusicBot.utils.database import get_lang, set_lang
-from EsproMusicBot.utils.decorators import ActualAdminCB, language, languageCB
+from EsproAiMusic import app
+from EsproAiMusic.utils.database import get_lang, set_lang
+from EsproAiMusic.utils.decorators import ActualAdminCB, language, languageCB
 from config import BANNED_USERS
 from strings import get_string, languages_present
 

@@ -3,11 +3,11 @@ from typing import Union
 from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message
 
-from EsproMusicBot import app
-from EsproMusicBot.utils import help_pannel
-from EsproMusicBot.utils.database import get_lang
-from EsproMusicBot.utils.decorators.language import LanguageStart, languageCB
-from EsproMusicBot.utils.inline.help import help_back_markup, private_help_panel
+from EsproAiMusic import app
+from EsproAiMusic.utils import help_pannel
+from EsproAiMusic.utils.database import get_lang
+from EsproAiMusic.utils.decorators.language import LanguageStart, languageCB
+from EsproAiMusic.utils.inline.help import help_back_markup, private_help_panel
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
 

@@ -28,7 +28,7 @@ from pyrogram import Client, filters
 import git
 import shutil
 import os
-from EsproMusicBot import app
+from EsproAiMusic import app
 
 
 

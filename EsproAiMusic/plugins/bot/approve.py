@@ -1,4 +1,4 @@
-from EsproMusicBot import app
+from EsproAiMusic import app
 from os import environ
 from config import BOT_USERNAME
 import config
@@ -52,8 +52,8 @@ async def get_userinfo_img(
 
 # --------------------------------------------------------------------------------- #
 
-bg_path = "EsproMusicBot/assets/userinfo.png"
-font_path = "EsproMusicBot/assets/hiroko.ttf"
+bg_path = "EsproAiMusic/assets/userinfo.png"
+font_path = "EsproAiMusic/assets/hiroko.ttf"
 
 # --------------------------------------------------------------------------------- #
 

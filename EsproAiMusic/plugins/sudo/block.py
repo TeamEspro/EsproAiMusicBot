@@ -1,11 +1,11 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from EsproMusicBot import app
-from EsproMusicBot.misc import SUDOERS
-from EsproMusicBot.utils.database import add_gban_user, remove_gban_user
-from EsproMusicBot.utils.decorators.language import language
-from EsproMusicBot.utils.extraction import extract_user
+from EsproAiMusic import app
+from EsproAiMusic.misc import SUDOERS
+from EsproAiMusic.utils.database import add_gban_user, remove_gban_user
+from EsproAiMusic.utils.decorators.language import language
+from EsproAiMusic.utils.extraction import extract_user
 from config import BANNED_USERS
 
 

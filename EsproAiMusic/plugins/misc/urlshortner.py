@@ -3,7 +3,7 @@ from pyrogram import Client, enums, filters, idle
 import re
 from requests import get
 import asyncio
-from EsproMusicBot import app as app
+from EsproAiMusic import app as app
 
 from pyrogram.types import InlineKeyboardButton as ikb, InlineKeyboardMarkup as ikm, Message
 from pyrogram.enums import ChatAction, ParseMode

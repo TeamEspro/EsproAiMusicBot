@@ -1,8 +1,8 @@
 from enum import Enum, auto
-from EsproMusicBot import app
+from EsproAiMusic import app
 from pyrogram.types import InlineKeyboardMarkup, Message
-from EsproMusicBot.utils.msg_types import button_markdown_parser
-from EsproMusicBot.utils.notes_func import NoteFillings
+from EsproAiMusic.utils.msg_types import button_markdown_parser
+from EsproAiMusic.utils.notes_func import NoteFillings
 from emojis import decode
 from pyrogram.types import Message
 

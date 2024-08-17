@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup as  BSP
-from EsproMusicBot import app as EsproAi
+from EsproAiMusic import app as EsproAi
 from pyrogram import filters
 url = "https://all-hashtag.com/library/contents/ajax_generator.php"
 

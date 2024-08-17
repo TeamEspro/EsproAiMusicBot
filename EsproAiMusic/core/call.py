@@ -17,9 +17,9 @@ from pytgcalls.types.input_stream.quality import HighQualityAudio, MediumQuality
 from pytgcalls.types.stream import StreamAudioEnded
 
 import config
-from EsproMusicBot import LOGGER, YouTube, app
-from EsproMusicBot.misc import db
-from EsproMusicBot.utils.database import (
+from EsproAiMusic import LOGGER, YouTube, app
+from EsproAiMusic.misc import db
+from EsproAiMusic.utils.database import (
     add_active_chat,
     add_active_video_chat,
     get_lang,
@@ -31,11 +31,11 @@ from EsproMusicBot.utils.database import (
     remove_active_video_chat,
     set_loop,
 )
-from EsproMusicBot.utils.exceptions import AssistantErr
-from EsproMusicBot.utils.formatters import check_duration, seconds_to_min, speed_converter
-from EsproMusicBot.utils.inline.play import stream_markup
-from EsproMusicBot.utils.stream.autoclear import auto_clean
-from EsproMusicBot.utils.thumbnails import get_thumb
+from EsproAiMusic.utils.exceptions import AssistantErr
+from EsproAiMusic.utils.formatters import check_duration, seconds_to_min, speed_converter
+from EsproAiMusic.utils.inline.play import stream_markup
+from EsproAiMusic.utils.stream.autoclear import auto_clean
+from EsproAiMusic.utils.thumbnails import get_thumb
 from strings import get_string
 
 autoend = {}

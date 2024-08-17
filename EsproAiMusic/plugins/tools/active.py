@@ -2,9 +2,9 @@ from pyrogram import filters, Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from unidecode import unidecode
 
-from EsproMusicBot import app
-from EsproMusicBot.misc import SUDOERS
-from EsproMusicBot.utils.database import (
+from EsproAiMusic import app
+from EsproAiMusic.misc import SUDOERS
+from EsproAiMusic.utils.database import (
     get_active_chats,
     get_active_video_chats,
     remove_active_chat,

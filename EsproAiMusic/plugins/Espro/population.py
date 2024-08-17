@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 import requests
-from EsproMusicBot import app
+from EsproAiMusic import app
 
 
 @app.on_message(filters.command("population"))

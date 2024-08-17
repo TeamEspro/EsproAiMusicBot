@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from datetime import datetime
 import pytz
-from EsproMusicBot import app
+from EsproAiMusic import app
 
 
 def get_current_time():
