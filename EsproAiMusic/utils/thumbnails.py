@@ -181,9 +181,9 @@ async def get_thumb(videoid: str):
         background = Image.blend(background, gradient_image, alpha=0.2)
         
         draw = ImageDraw.Draw(background)
-        arial = ImageFont.truetype("EsproMusic/assets/font2.ttf", 30)
-        font = ImageFont.truetype("EsproMusic/assets/font.ttf", 30)
-        title_font = ImageFont.truetype("EsproMusic/assets/font3.ttf", 45)
+        arial = ImageFont.truetype("EsproAiMusic/assets/font2.ttf", 30)
+        font = ImageFont.truetype("EsproAiMusic/assets/font.ttf", 30)
+        title_font = ImageFont.truetype("EsproAiMusic/assets/font3.ttf", 45)
 
 
         circle_thumbnail = crop_center_circle(youtube, 400, 20, start_gradient_color)
@@ -233,7 +233,7 @@ async def get_thumb(videoid: str):
         draw_text_with_shadow(background, draw, (text_x_position, 400), "00:00", arial, (255, 255, 255))
         draw_text_with_shadow(background, draw, (1080, 400), duration, arial, (255, 255, 255))
         
-        play_icons = Image.open("EsproMusic/assets/play_icons.png")
+        play_icons = Image.open("EsproAiMusic/assets/play_icons.png")
         play_icons = play_icons.resize((580, 62))
         background.paste(play_icons, (text_x_position, 450), play_icons)
 
