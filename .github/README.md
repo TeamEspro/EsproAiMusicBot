@@ -15,7 +15,7 @@
 </p>
 
 <a href="https://glitch.com/edit/#!/import/github/TeamEspro/EsproAiMusicBot" target="_blank">
-  <img alt="Deploy to Glitch" src="https://glitch.com/deploy/button.svg">
+  <img alt="Deploy to Glitch" src="https://img.shields.io/badge/Deploy%20On%20Glitch-black?style=for-the-badge&logo=heroku">
 </a>
 
 
