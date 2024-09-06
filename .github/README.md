@@ -13,7 +13,11 @@
 <a href="https://www.python.org/"> <img src="https://img.shields.io/badge/Written%20in-Python-orange?style=for-the-badge&logo=python" alt="Python" /> </a>
 <a href="https://github.com/TeamEspro/EsproAiMusicBot/commits/EsproAiMusicBot"> <img src="https://img.shields.io/github/last-commit/TeamEspro/EsproAiMusicBot?color=blue&logo=github&logoColor=green&style=for-the-badge" /></a>
 </p>
-[![Deploy to Glitch](https://cdn.glitch.com/7d527e9b-bd07-4f66-b8c7-5e55f4d75c3d%2Fdeploy-to-glitch.svg?1501610467944)](https://glitch.com/import/github/TeamEspro/EsproAiMusicBot)
+
+<a href="https://glitch.com/edit/#!/import/github/TeamEspro/EsproAiMusicBot" target="_blank">
+  <img alt="Deploy to Glitch" src="https://glitch.com/deploy/button.svg">
+</a>
+
 
 
 
