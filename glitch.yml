@@ -1,0 +1,9 @@
+name: Glitch Deploy
+description: Deploy this repository to Glitch
+icon: 'https://glitch.com/favicon.ico'
+deploy:
+  url: https://glitch.com/import/github
+  method: POST
+  body:
+    repository: {repository}
+    
