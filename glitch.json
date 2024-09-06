@@ -1,0 +1,13 @@
+{
+  "name": "Music Bot",
+  "description": "A Telegram Music Bot",
+  "buildpacks": [
+    {
+      "url": "glitch/python"
+    },
+    {
+      "url": "https://github.com/jonathanong/glitch-buildpack-ffmpeg-latest.git"
+    }
+  ],
+  "stack": "container"
+}
