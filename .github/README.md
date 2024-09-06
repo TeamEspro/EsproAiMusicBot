@@ -14,8 +14,12 @@
 <a href="https://github.com/TeamEspro/EsproAiMusicBot/commits/EsproAiMusicBot"> <img src="https://img.shields.io/github/last-commit/TeamEspro/EsproAiMusicBot?color=blue&logo=github&logoColor=green&style=for-the-badge" /></a>
 </p>
 
-<a href="https://glitch.com/edit/#!/import/github/TeamEspro/EsproAiMusicBot" target="_blank">
-  <img alt="Deploy to Glitch" src="https://img.shields.io/badge/Deploy%20On%20Glitch-black?style=for-the-badge&logo=heroku">
+<h3 align="center">
+    ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ɢʟɪᴛᴄʜ 」─
+</h3>
+
+<p align="center"><a href="https://glitch.com/edit/#!/import/github/TeamEspro/EsproAiMusicBot" target="_blank">
+  <img alt="Deploy to Glitch" src="https://img.shields.io/badge/Deploy%20On%20Glitch-black?style=for-the-badge&logo=Glitch">
 </a>
 
 
