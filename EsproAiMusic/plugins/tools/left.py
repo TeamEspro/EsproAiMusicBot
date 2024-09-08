@@ -115,6 +115,8 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
             await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
 
 # --------------------------------------------------------------------------------- #
+import asyncio
+from pyrogram.errors import RPCError
 
 @app.on_chat_member_updated(filters.group, group=20)
 async def member_has_left(client: app, member: ChatMemberUpdated):
