@@ -1,3 +1,5 @@
+import time
+import asyncio
 from EsproAiMusic import app
 from pyrogram import Client, filters
 from pyrogram.errors import RPCError
@@ -106,10 +108,75 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                     [InlineKeyboardButton(button_text, url=deep_link)]
                 ])
             )
+Aapko 10 seconds ke baad message ko automatically delete karne ke liye sleep function ka use karna hoga aur phir delete_messages method ke zariye us message ko delete karna hoga. Yaha main aapko code ke andar changes dikha raha hoon taaki aap apne message ko 10 seconds baad delete kar sakein:
+
+Updated Code with Message Deletion After 10 Seconds:
+python
+Copy code
+import asyncio  # For adding delay (asynchronous sleep)
+from pyrogram.errors import RPCError
+
+# --------------------------------------------------------------------------------- #
+
+@app.on_chat_member_updated(filters.group, group=20)
+async def member_has_left(client: app, member: ChatMemberUpdated):
+
+    if (
+        not member.new_chat_member
+        and member.old_chat_member.status not in {
+            "banned", "left", "restricted"
+        }
+        and member.old_chat_member
+    ):
+        pass
+    else:
+        return
+
+    user = (
+        member.old_chat_member.user
+        if member.old_chat_member
+        else member.from_user
+    )
+
+    # Check if the user has a profile photo
+    if user.photo and user.photo.big_file_id:
+        try:
+            # Add the photo path, caption, and button details
+            photo = await app.download_media(user.photo.big_file_id)
+
+            welcome_photo = await get_userinfo_img(
+                bg_path=bg_path,
+                font_path=font_path,
+                user_id=user.id,
+                profile_path=photo,
+            )
+        
+            caption = f"**#New_Member_Left**\n\n**๏** {user.mention} **ʜᴀs ʟᴇғᴛ ᴛʜɪs ɢʀᴏᴜᴘ**\n**๏ sᴇᴇ ʏᴏᴜ sᴏᴏɴ ᴀɢᴀɪɴ..!**"
+            button_text = "๏ ᴠɪᴇᴡ ᴜsᴇʀ ๏"
+
+            # Generate a deep link to open the user's profile
+            deep_link = f"tg://openmessage?user_id={user.id}"
+
+            # Send the message with the photo, caption, and button
+            message = await client.send_photo(
+                chat_id=member.chat.id,
+                photo=welcome_photo,
+                caption=caption,
+                reply_markup=InlineKeyboardMarkup([
+                    [InlineKeyboardButton(button_text, url=deep_link)]
+                ])
+            )
+            
+            # Wait for 10 seconds
+            await asyncio.sleep(10)
+            
+            # Delete the message after 10 seconds
+            await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
+        
         except RPCError as e:
             print(e)
             return
     else:
         # Handle the case where the user has no profile photo
         print(f"User {user.id} has no profile photo.")
-        
+             
