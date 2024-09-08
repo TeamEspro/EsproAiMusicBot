@@ -108,13 +108,11 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                     [InlineKeyboardButton(button_text, url=deep_link)]
                 ])
             )
-Aapko 10 seconds ke baad message ko automatically delete karne ke liye sleep function ka use karna hoga aur phir delete_messages method ke zariye us message ko delete karna hoga. Yaha main aapko code ke andar changes dikha raha hoon taaki aap apne message ko 10 seconds baad delete kar sakein:
-
-Updated Code with Message Deletion After 10 Seconds:
-python
-Copy code
-import asyncio  # For adding delay (asynchronous sleep)
-from pyrogram.errors import RPCError
+# Wait for 10 seconds
+            await asyncio.sleep(10)
+            
+            # Delete the message after 10 seconds
+            await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
 
 # --------------------------------------------------------------------------------- #
 
