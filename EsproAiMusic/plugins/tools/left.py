@@ -101,10 +101,10 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                 ])
             )
             
-            # Wait for 10 seconds
-            await asyncio.sleep(10)
+            # Wait for 1 seconds
+            await asyncio.sleep(1)
             
-            # Delete the message after 10 seconds
+            # Delete the message after 1 seconds
             await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
         
         except RPCError as e:
