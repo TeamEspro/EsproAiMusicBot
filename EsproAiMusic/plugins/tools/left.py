@@ -57,20 +57,14 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
 
     if (
         not member.new_chat_member
-        and member.old_chat_member.status not in {
-            "banned", "left", "restricted"
-        }
+        and member.old_chat_member.status not in {"banned", "left", "restricted"}
         and member.old_chat_member
     ):
         pass
     else:
         return
 
-    user = (
-        member.old_chat_member.user
-        if member.old_chat_member
-        else member.from_user
-    )
+    user = member.old_chat_member.user if member.old_chat_member else member.from_user
 
     # Check if the user has a profile photo
     if user.photo and user.photo.big_file_id:
@@ -100,16 +94,21 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                     [InlineKeyboardButton(button_text, url=deep_link)]
                 ])
             )
-            
-            # Wait for 10 seconds
-            await asyncio.sleep(10)
-            
-            # Delete the message after 10 seconds
-            await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
+
+            # Check if the message has a message_id
+            if message and message.message_id:
+                # Wait for 10 seconds
+                await asyncio.sleep(10)
+                
+                # Delete the message after 10 seconds
+                await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
+            else:
+                print("The sent message does not have a message_id attribute.")
         
         except RPCError as e:
             print(f"RPCError occurred: {e}")
-            return
+        except Exception as e:
+            print(f"An error occurred: {e}")
     else:
         # Handle the case where the user has no profile photo
         print(f"User {user.id} has no profile photo.")
