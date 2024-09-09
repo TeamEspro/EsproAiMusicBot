@@ -10,8 +10,8 @@ URL_PATTERN = re.compile(r"(https?://[^\s]+|www\.[^\s]+)")
 async def check_bio_for_links(client, chat_member_update):
     new_member = chat_member_update.new_chat_member
 
-    # Ensure that the user has joined the group
-    if new_member.status == "member" and new_member.user:
+    # Ensure that new_member is not None and the user has joined the group
+    if new_member is not None and new_member.status == "member" and new_member.user:
         try:
             # Fetch the user information using get_chat (to get bio)
             user_info = await client.get_chat(new_member.user.id)
