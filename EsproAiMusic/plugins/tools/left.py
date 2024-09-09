@@ -51,26 +51,51 @@ async def get_userinfo_img(
 bg_path = "EsproAiMusic/assets/userinfo.png"
 font_path = "EsproAiMusic/assets/hiroko.ttf"
 
+# In-memory dictionary to store feature state
+feature_state = {}
+
+# Command to enable or disable the left message feature
+@app.on_message(filters.command("leftmsg") & filters.group)
+async def toggle_left_message(_, message):
+    if len(message.command) != 2:
+        await message.reply_text("Usage: /leftmsg [on|off]")
+        return
+
+    state = message.command[1].strip().lower()
+    chat_id = message.chat.id
+    user = await app.get_chat_member(chat_id, message.from_user.id)
+
+    if user.status in (filters.ChatMemberStatus.ADMINISTRATOR, filters.ChatMemberStatus.OWNER):
+        if state == "on":
+            feature_state[chat_id] = True
+            await message.reply_text(f"Left message feature enabled for {message.chat.title}")
+        elif state == "off":
+            feature_state[chat_id] = False
+            await message.reply_text(f"Left message feature disabled for {message.chat.title}")
+        else:
+            await message.reply_text("Usage: /leftmsg [on|off]")
+    else:
+        await message.reply("Only admins can use this command.")
+
 # Event handler when a member leaves the chat
 @app.on_chat_member_updated(filters.group, group=20)
 async def member_has_left(client: app, member: ChatMemberUpdated):
+    chat_id = member.chat.id
+
+    # Check if the feature is enabled for this chat
+    if not feature_state.get(chat_id, False):
+        return
 
     if (
         not member.new_chat_member
-        and member.old_chat_member.status not in {
-            "banned", "left", "restricted"
-        }
+        and member.old_chat_member.status not in {"banned", "left", "restricted"}
         and member.old_chat_member
     ):
         pass
     else:
         return
 
-    user = (
-        member.old_chat_member.user
-        if member.old_chat_member
-        else member.from_user
-    )
+    user = member.old_chat_member.user if member.old_chat_member else member.from_user
 
     # Check if the user has a profile photo
     if user.photo and user.photo.big_file_id:
@@ -85,7 +110,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                 user_id=user.id,
                 profile_path=photo,
             )
-        
+
             # Create the caption and button
             caption = f"**#New_Member_Left**\n\n**๏** {user.mention} **ʜᴀs ʟᴇғᴛ ᴛʜɪs ɢʀᴏᴜᴘ**\n**๏ sᴇᴇ ʏᴏᴜ sᴏᴏɴ ᴀɢᴀɪɴ..!**"
             button_text = "๏ ᴠɪᴇᴡ ᴜsᴇʀ ๏"
@@ -100,13 +125,13 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                     [InlineKeyboardButton(button_text, url=deep_link)]
                 ])
             )
-            
-            # Wait for 1 seconds
-            await app.sleep(1)
-            
-            # Delete the message after 1 seconds
+
+            # Wait for 1 second
+            await asyncio.sleep(1)
+
+            # Delete the message after 1 second
             await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
-        
+
         except RPCError as e:
             print(f"RPCError occurred: {e}")
             return
