@@ -2,6 +2,7 @@ import asyncio
 from EsproAiMusic import app
 from pyrogram import filters
 from pyrogram.errors import RPCError
+from pyrogram import filters, enums
 from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboardButton
 from typing import Union, Optional
 from PIL import Image, ImageDraw, ImageFont
@@ -65,12 +66,12 @@ async def toggle_left_message(_, message):
     chat_id = message.chat.id
     user = await app.get_chat_member(chat_id, message.from_user.id)
 
-    if user.status in (filters.ChatMemberStatus.ADMINISTRATOR, filters.ChatMemberStatus.OWNER):
+    if user.status in (enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER):
         if state == "on":
             feature_state[chat_id] = True
             await message.reply_text(f"Left message feature enabled for {message.chat.title}")
         elif state == "off":
-            feature_state[chat_id] = False
+            feature_state[chat_id] = True
             await message.reply_text(f"Left message feature disabled for {message.chat.title}")
         else:
             await message.reply_text("Usage: /leftmsg [on|off]")
