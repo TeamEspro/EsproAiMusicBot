@@ -1,6 +1,6 @@
 import asyncio
 from EsproAiMusic import app
-from pyrogram import filters
+from pyrogram import filters, enums
 from pyrogram.errors import RPCError
 from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboardButton
 from typing import Union, Optional
@@ -51,9 +51,40 @@ async def get_userinfo_img(
 bg_path = "EsproAiMusic/assets/userinfo.png"
 font_path = "EsproAiMusic/assets/hiroko.ttf"
 
+# In-memory dictionary to store feature state
+feature_state = {}
+
+# Command to enable or disable the left message feature
+@app.on_message(filters.command("leftmsg") & filters.group)
+async def toggle_left_message(_, message):
+    if len(message.command) != 2:
+        await message.reply_text("Usage: /leftmsg [on|off]")
+        return
+
+    state = message.command[1].strip().lower()
+    chat_id = message.chat.id
+    user = await app.get_chat_member(chat_id, message.from_user.id)
+
+    if user.status in (enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER):
+        if state == "on":
+            feature_state[chat_id] = True
+            await message.reply_text(f"Left message feature enabled for {message.chat.title}")
+        elif state == "off":
+            feature_state[chat_id] = False
+            await message.reply_text(f"Left message feature disabled for {message.chat.title}")
+        else:
+            await message.reply_text("Usage: /leftmsg [on|off]")
+    else:
+        await message.reply("Only admins can use this command.")
+
 # Event handler when a member leaves the chat
 @app.on_chat_member_updated(filters.group, group=20)
 async def member_has_left(client: app, member: ChatMemberUpdated):
+    chat_id = member.chat.id
+
+    # Check if the feature is enabled for this chat
+    if not feature_state.get(chat_id, False):
+        return
 
     if (
         not member.new_chat_member
@@ -79,7 +110,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                 user_id=user.id,
                 profile_path=photo,
             )
-        
+
             # Create the caption and button
             caption = f"**#New_Member_Left**\n\n**๏** {user.mention} **ʜᴀs ʟᴇғᴛ ᴛʜɪs ɢʀᴏᴜᴘ**\n**๏ sᴇᴇ ʏᴏᴜ sᴏᴏɴ ᴀɢᴀɪɴ..!**"
             button_text = "๏ ᴠɪᴇᴡ ᴜsᴇʀ ๏"
@@ -95,16 +126,16 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                 ])
             )
 
-            # Check if the message has a message_id
-            if message and message.message_id:
-                # Wait for 10 seconds
-                await asyncio.sleep(10)
-                
-                # Delete the message after 10 seconds
+            # Check if the message has the correct attribute
+            if hasattr(message, "message_id"):
+                # Wait for 15 seconds
+                await asyncio.sleep(15)
+
+                # Delete the message after 15 seconds
                 await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
             else:
-                print("The sent message does not have a message_id attribute.")
-        
+                print("The 'message' object does not have 'message_id' attribute.")
+
         except RPCError as e:
             print(f"RPCError occurred: {e}")
         except Exception as e:
