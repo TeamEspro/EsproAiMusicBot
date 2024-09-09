@@ -24,9 +24,9 @@ pic = "https://telegra.ph/file/069e69ad5b08eaf94844e.jpg"
 @app.on_message(filters.group & filters.group, group=6)
 def today_watcher(_, message):
     chat_id = message.chat.id
-    if message.from_user is None:
-        return  # Ignore messages without a user (e.g., from channels or service messages)
-
+    if message.from_user is None:  # Check if the message has a valid user
+        return  # Ignore messages without a user
+    
     user_id = message.from_user.id
     if chat_id in today and user_id in today[chat_id]:
         today[chat_id][user_id]["total_messages"] += 1
@@ -41,14 +41,13 @@ def today_watcher(_, message):
 
 @app.on_message(filters.group & filters.group, group=11)
 def _watcher(_, message):
-    if message.from_user is None:
-        return  # Ignore messages without a user (e.g., from channels or service messages)
+    if message.from_user is None:  # Check if the message has a valid user
+        return  # Ignore messages without a user
     
-    user_id = message.from_user.id
+    user_id = message.from_user.id    
     user_data.setdefault(user_id, {}).setdefault("total_messages", 0)
     user_data[user_id]["total_messages"] += 1    
     collection.update_one({"_id": user_id}, {"$inc": {"total_messages": 1}}, upsert=True)
-
 
 
 # ------------------- ranks ------------------ #
@@ -80,7 +79,6 @@ async def today_(_, message):
         await message.reply_text("No data available for today.")
 
 
-
 @app.on_message(filters.command("ranking"))
 async def ranking(_, message):
     top_members = collection.find().sort("total_messages", -1).limit(10)
@@ -101,7 +99,6 @@ async def ranking(_, message):
                InlineKeyboardButton("TODAY", callback_data="today"),
             ]])
     await message.reply_photo(photo=pic, caption=response, reply_markup=button)
-
 
 
 # -------------------- regex -------------------- # 
@@ -133,7 +130,6 @@ async def today_rank(_, query):
         await query.answer("No data available for today.")
 
 
-
 @app.on_callback_query(filters.regex("overall"))
 async def overall_rank(_, query):
     top_members = collection.find().sort("total_messages", -1).limit(10)
@@ -154,10 +150,3 @@ async def overall_rank(_, query):
                InlineKeyboardButton("TODAY", callback_data="today"),
             ]])
     await query.message.edit_text(response, reply_markup=button)
-
-
-
-
-    
-
-
