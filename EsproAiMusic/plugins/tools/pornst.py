@@ -1,4 +1,3 @@
-import asyncio
 from EsproAiMusic import app
 from pyrogram import filters
 
@@ -18,16 +17,12 @@ async def remove_porn_stickers(client, message):
             # Delete the sticker message
             await message.delete()
 
-            # Send a warning message after deletion
-            warning_message = await client.send_message(
+            # Optionally, send a warning message after deletion
+            await client.send_message(
                 chat_id=message.chat.id,
                 text="🚫 **Pornographic sticker has been deleted. Please avoid sending such content!**",
             )
 
-            # Wait for 10 seconds before deleting the warning message
-            await asyncio.sleep(10)
-            await client.delete_messages(chat_id=member.chat.id, message_ids=message.id)
-
-
         except Exception as e:
             print(f"Error while deleting sticker: {e}")
+
