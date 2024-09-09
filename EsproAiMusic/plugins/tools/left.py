@@ -128,7 +128,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
             )
 
             # Wait for 1 second
-            await asyncio.sleep(1)
+            await asyncio.sleep(15)
 
             # Delete the message after 1 second
             await client.delete_messages(chat_id=member.chat.id, message_ids=message.id)
