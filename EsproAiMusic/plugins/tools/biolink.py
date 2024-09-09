@@ -9,7 +9,7 @@ URL_PATTERN = r"(https?://[^\s]+)"
 # Function to mute the user
 async def mute_user(chat_id: int, user_id: int):
     try:
-        await app.restrict_chat_member(chat_id, user_id, permissions={"can_send_messages": False})
+        await app.restrict_chat_member(chat_id, user_id, permissions={"can_send_messages": Tru})
         print(f"User {user_id} has been muted for adding a link in their bio.")
     except Exception as e:
         print(f"Error muting user {user_id}: {e}")
