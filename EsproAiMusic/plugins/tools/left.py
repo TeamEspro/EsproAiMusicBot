@@ -71,12 +71,13 @@ async def toggle_left_message(_, message):
             feature_state[chat_id] = True
             await message.reply_text(f"Left message feature enabled for {message.chat.title}")
         elif state == "off":
-            feature_state[chat_id] = True
+            feature_state[chat_id] = False  # Updated to set it to False
             await message.reply_text(f"Left message feature disabled for {message.chat.title}")
         else:
             await message.reply_text("Usage: /leftmsg [on|off]")
     else:
         await message.reply("Only admins can use this command.")
+
 
 # Event handler when a member leaves the chat
 @app.on_chat_member_updated(filters.group, group=20)
