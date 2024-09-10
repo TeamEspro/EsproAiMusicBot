@@ -1,8 +1,9 @@
-from EsproAiMusic import app
+from EsproAiMusic import app  # Ensure this import matches your actual setup
 from pyrogram import Client, filters
 from pyrogram.types import ChatPermissions
 
-
+# Define your group ID here
+GROUP_ID = -1002030185823  # Replace with your actual group ID
 
 @app.on_message(filters.new_chat_members)
 async def on_new_member(client, message):
@@ -45,4 +46,4 @@ async def on_message(client, message):
         )
         await message.reply_text("You are restricted due to containing a link in your message.")
 
-
+app.run()
