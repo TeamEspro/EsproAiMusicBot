@@ -28,7 +28,7 @@ async def on_new_member(client, message):
                 text=f"{new_member.mention} has been restricted due to containing a link in their bio."
             )
 
-@app.on_message(filters.text & ~filters.command)
+@app.on_message(filters.text & filters.chat(GROUP_ID))
 async def on_message(client, message):
     # Check for links in any message sent
     if "http" in message.text or "https" in message.text or ".com" in message.text:
