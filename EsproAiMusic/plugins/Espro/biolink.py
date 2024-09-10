@@ -4,9 +4,9 @@ from pyrogram.types import ChatPermissions
 # Initialize the Pyrogram Client
 app = Client(
     "my_bot",  # Name of your session
-    api_id="YOUR_API_ID",  # Replace with your API ID from https://my.telegram.org
-    api_hash="YOUR_API_HASH",  # Replace with your API Hash from https://my.telegram.org
-    bot_token="YOUR_BOT_TOKEN"  # Replace with your bot's token from BotFather
+    api_id="API_ID",  # Replace with your API ID from https://my.telegram.org
+    api_hash="API_HASH",  # Replace with your API Hash from https://my.telegram.org
+    bot_token="BOT_TOKEN"  # Replace with your bot's token from BotFather
 )
 
 # Function to check if a user's bio contains a link
