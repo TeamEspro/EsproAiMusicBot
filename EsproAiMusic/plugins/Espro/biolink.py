@@ -70,5 +70,4 @@ async def restrict_on_link_message(client, message):
     except Exception as e:
         await message.reply_text(f"Error: {str(e)}")
 
-# Run the bot
-app.run()
+
