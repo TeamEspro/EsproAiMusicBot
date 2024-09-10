@@ -108,13 +108,20 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                 ])
             )
 
-            # Wait for 15 seconds
-            await asyncio.sleep(15)
+            # Debug information
+            print(f"Sent message: {message}")
 
-            # Delete the message after 15 seconds
-            await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
+            # Ensure the `message` object has the `message_id` attribute
+            if hasattr(message, 'message_id'):
+                # Wait for 15 seconds
+                await asyncio.sleep(15)
+
+                # Delete the message after 15 seconds
+                await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
+            else:
+                print("Message object does not have 'message_id' attribute.")
         except RPCError as e:
-            print(e)
+            print(f"RPCError: {e}")
     else:
         # Handle the case where the user has no profile photo
         print(f"User {user.id} has no profile photo.")
