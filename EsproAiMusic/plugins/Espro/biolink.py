@@ -1,13 +1,8 @@
+from EsproAiMusic import app
 from pyrogram import Client, filters
 from pyrogram.types import ChatPermissions
 
-# Initialize the Pyrogram Client
-app = Client(
-    "my_bot",  # Name of your session
-    api_id="API_ID",  # Replace with your API ID from https://my.telegram.org
-    api_hash="API_HASH",  # Replace with your API Hash from https://my.telegram.org
-    bot_token="BOT_TOKEN"  # Replace with your bot's token from BotFather
-)
+
 
 # Function to check if a user's bio contains a link
 def bio_contains_link(bio):
