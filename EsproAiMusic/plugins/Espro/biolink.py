@@ -1,4 +1,4 @@
-
+from EsproAiMusic import app
 from pyrogram import Client, filters, enums, errors
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ChatPermissions
 import re
