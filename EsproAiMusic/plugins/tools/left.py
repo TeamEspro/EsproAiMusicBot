@@ -1,3 +1,4 @@
+import asynci
 from EsproAiMusic import app
 from pyrogram import Client, filters
 from pyrogram.errors import RPCError
@@ -98,7 +99,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
             deep_link = f"tg://openmessage?user_id={user.id}"
 
             # Send the message with the photo, caption, and button
-            await client.send_photo(
+            message = await client.send_photo(
                 chat_id=member.chat.id,
                 photo=welcome_photo,
                 caption=caption,
@@ -107,15 +108,14 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                 ])
             )
 
-        # Wait for 15 seconds
-                await asyncio.sleep(15)
+            # Wait for 15 seconds
+            await asyncio.sleep(15)
 
-                # Delete the message after 15 seconds
-                await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
+            # Delete the message after 15 seconds
+            await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
         except RPCError as e:
             print(e)
             return
     else:
         # Handle the case where the user has no profile photo
         print(f"User {user.id} has no profile photo.")
-        
