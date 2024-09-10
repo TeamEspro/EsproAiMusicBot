@@ -1,11 +1,9 @@
 import asyncio
-import datetime
-from EsproAiMusic import app
 from pyrogram import Client
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from EsproAiMusic import app
 from config import START_IMG_URL
 from EsproAiMusic.utils.database import get_served_chats
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-
 
 MESSAGE = f"""**๏ ᴛʜɪs ɪs ᴀᴅᴠᴀɴᴄᴇᴅ ᴍᴜsɪᴄ ᴘʟᴀʏᴇʀ ʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs + ᴄʜᴀɴɴᴇʟs ᴠᴄ. 💌
 
@@ -36,16 +34,25 @@ async def send_message_to_chats():
             chat_id = chat_info.get('chat_id')
             if isinstance(chat_id, int):  # Check if chat_id is an integer
                 try:
-                    await app.send_photo(chat_id, photo=START_IMG_URL, caption=MESSAGE, reply_markup=BUTTON)
-                    await asyncio.sleep(3)  # Sleep for 1 second between sending messages
+                    # Send the message and capture the sent message
+                    sent_message = await app.send_photo(chat_id, photo=START_IMG_URL, caption=MESSAGE, reply_markup=BUTTON)
+                    
+                    # Wait for 20 seconds before deleting the message
+                    await asyncio.sleep(20)
+                    
+                    # Delete the message after 20 seconds
+                    await app.delete_messages(chat_id, sent_message.message_id)
                 except Exception as e:
-                    pass  # Do nothing if an error occurs while sending message
+                    print(f"Error sending or deleting message: {e}")  # Log the error
     except Exception as e:
-        pass  # Do nothing if an error occurs while fetching served chats
+        print(f"Error fetching served chats: {e}")  # Log the error
+
 async def continuous_broadcast():
     while True:
         await send_message_to_chats()
-        await asyncio.sleep(50000)  # Sleep (30000 seconds) between next broadcast
+        await asyncio.sleep(3600)  # Sleep for 1 hour (3600 seconds) between broadcasts
 
-# Start the continuous broadcast loop
-asyncio.create_task(continuous_broadcast())
+# Start the client and the continuous broadcast loop
+if __name__ == "__main__":
+    app.run()  # Ensure the client is running
+    asyncio.create_task(continuous_broadcast())
