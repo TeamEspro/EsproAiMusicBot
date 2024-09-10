@@ -46,4 +46,4 @@ async def on_message(client, message):
         )
         await message.reply_text("You are restricted due to containing a link in your message.")
 
-app.run()
+
