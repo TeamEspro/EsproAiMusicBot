@@ -31,27 +31,7 @@ async def restrict_on_join(client, message):
         except Exception as e:
             await message.reply_text(f"Error: {str(e)}")
 
-@app.on_message(filters.text & filters.group)
-async def check_bio_and_restrict(client, message):
-    chat_id = message.chat.id
-    user_id = message.from_user.id
-    first_name = message.from_user.first_name
 
-    try:
-        # Get user's bio details
-        user_details = await client.get_users(user_id)
-        bio = user_details.bio  # User's bio
-        
-        # Check if bio contains a link
-        if bio_contains_link(bio):
-            await client.restrict_chat_member(
-                chat_id,
-                user_id,
-                ChatPermissions(can_send_messages=False)  # Restrict from sending messages
-            )
-            await message.reply_text(f"{first_name} ko restrict kiya gaya bio me link hone ke karan.")
-    except Exception as e:
-        await message.reply_text(f"Error: {str(e)}")
 
 @app.on_message(filters.regex(r"(http|https)"))
 async def restrict_on_link_message(client, message):
