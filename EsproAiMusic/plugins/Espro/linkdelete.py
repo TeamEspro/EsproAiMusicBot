@@ -23,5 +23,4 @@ def link_checker(client, message):
     else:
         print("No link detected in the message.")  # Debug statement
 
-# Bot ko start karne ke liye
-app.run()
+
