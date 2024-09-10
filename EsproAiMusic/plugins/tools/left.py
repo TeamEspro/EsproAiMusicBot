@@ -1,4 +1,3 @@
-import asynci
 from EsproAiMusic import app
 from pyrogram import Client, filters
 from pyrogram.errors import RPCError
@@ -6,6 +5,7 @@ from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboa
 from os import environ
 from typing import Union, Optional
 from PIL import Image, ImageDraw, ImageFont
+import asyncio
 
 # --------------------------------------------------------------------------------- #
 
@@ -115,7 +115,6 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
             await client.delete_messages(chat_id=member.chat.id, message_ids=message.message_id)
         except RPCError as e:
             print(e)
-            return
     else:
         # Handle the case where the user has no profile photo
         print(f"User {user.id} has no profile photo.")
