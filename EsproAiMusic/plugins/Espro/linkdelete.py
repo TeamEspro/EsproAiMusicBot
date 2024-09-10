@@ -1,18 +1,27 @@
 from EsproAiMusic import app
-from pyrogram import filters
+from pyrogram import Client, filters
 import re
 
-# Define a URL pattern
-URL_PATTERN = re.compile(r"(https?://[^\s]+)")
 
-# Function to detect and delete messages with links
-@app.on_message(filters.group & filters.text)
-async def delete_link_messages(client, message):
-    if URL_PATTERN.search(message.text):  # Check if the message contains a link
+# Link detection ke liye function
+def is_link(message_text):
+    url_pattern = r"(https?://[^\s]+|www\.[^\s]+)"  # URL detect karne ka pattern
+    return re.search(url_pattern, message_text) is not None
+
+# Message handler jo group me aaye har message ko check karega
+@app.on_message(filters.group)
+def link_checker(client, message):
+    print(f"Received message: {message.text}")  # Debug statement
+    
+    if message.text and is_link(message.text):
         try:
-            await message.delete()  # Delete the message
-            print(f"Deleted a message with link from {message.from_user.mention}")
+            # Agar message me link hai to usse delete karo
+            message.delete()
+            print(f"Deleted a message containing link from {message.from_user.first_name}")
         except Exception as e:
             print(f"Failed to delete message: {e}")
+    else:
+        print("No link detected in the message.")  # Debug statement
 
-# The bot will monitor the group for any message that contains a link and delete it
+# Bot ko start karne ke liye
+app.run()
