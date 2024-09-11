@@ -19,7 +19,7 @@ today = {}
 pic = "https://telegra.ph/file/069e69ad5b08eaf94844e.jpg"
 
 
-# ------------------- watcher ----------------------- #
+# ------------------ watcher ---------------------- #
 
 @app.on_message(filters.group & filters.group, group=6)
 def today_watcher(_, message):
