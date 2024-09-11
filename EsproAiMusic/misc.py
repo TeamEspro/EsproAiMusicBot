@@ -58,7 +58,7 @@ async def sudo():
     if sudoers:
         for user_id in sudoers:
             SUDOERS.add(user_id)
-    LOGGER(__name__).info(f"𝗦𝐒𝐮𝐝𝐨 𝐔𝐬𝐞𝐫 𝐂𝐨𝐦𝐩𝐥𝐞𝐭𝐞🥀.")
+    LOGGER(__name__).info(f"𝐒𝐮𝐝𝐨 𝐔𝐬𝐞𝐫 𝐂𝐨𝐦𝐩𝐥𝐞𝐭𝐞🥀.")
 
 
 def heroku():
