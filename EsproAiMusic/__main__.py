@@ -50,7 +50,7 @@ async def init():
         pass
     await EsproAi.decorators()
     LOGGER("EsproAiMusic").info(
-        "EsproAiMusicBot Start And Play.."
+        "EsproMusicBot started "
     )
     await idle()
     await app.stop()
