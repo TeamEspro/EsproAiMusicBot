@@ -16,8 +16,8 @@ pydub
 pycountry
 heroku3
 apscheduler
-pymongo==4.5.1
-motor==3.3.2
+pymongo
+motor
 pillow==9.5.0
 psutil
 wget
