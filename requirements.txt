@@ -16,8 +16,8 @@ pydub
 pycountry
 heroku3
 apscheduler
-motor==3.3.2
-pillow==9.5.0
+motor
+pillow
 psutil
 wget
 pyfiglet
