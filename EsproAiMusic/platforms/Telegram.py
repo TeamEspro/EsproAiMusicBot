@@ -4,7 +4,6 @@ import time
 from typing import Union
 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Voice
-import aiohttp
 
 import config
 from EsproAiMusic import app
@@ -20,7 +19,6 @@ class TeleAPI:
     def __init__(self):
         self.chars_limit = 4096
         self.sleep = 5
-        self.cookie_jar = aiohttp.CookieJar()
 
     async def send_split_text(self, message, string):
         n = self.chars_limit
@@ -153,14 +151,11 @@ class TeleAPI:
 
             speed_counter[message.id] = time.time()
             try:
-                async with aiohttp.ClientSession(cookie_jar=self.cookie_jar) as session:
-                    async with session.get(message.reply_to_message.audio.file_id) as resp:
-                        with open(fname, 'wb') as f:
-                            while True:
-                                chunk = await resp.content.read(1024)
-                                if not chunk:
-                                    break
-                                f.write(chunk)
+                await app.download_media(
+                    message.reply_to_message,
+                    file_name=fname,
+                    progress=progress,
+                )
                 try:
                     elapsed = get_readable_time(
                         int(int(time.time()) - int(speed_counter[message.id]))
