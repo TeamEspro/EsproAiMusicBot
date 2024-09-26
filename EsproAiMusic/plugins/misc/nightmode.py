@@ -10,24 +10,24 @@ from EsproAiMusic.mongo.nightmodedb import nightdb,nightmode_on,nightmode_off,ge
 
 CLOSE_CHAT = ChatPermissions(
     can_send_messages=False,
-    can_send_media_messages = False,
-    can_send_other_messages = False,
-    can_send_polls = False,
-    can_change_info = False,
-    can_add_web_page_previews = False,
-    can_pin_messages = False,
-    can_invite_users = False )
-
+    can_send_media_messages=False,
+    can_send_polls=False,
+    can_change_info=False,
+    can_add_web_page_previews=False,
+    can_pin_messages=False,
+    can_invite_users=False
+)
 
 OPEN_CHAT = ChatPermissions(
     can_send_messages=True,
-    can_send_media_messages = True,
-    can_send_other_messages = True,
-    can_send_polls = True,
-    can_change_info = True,
-    can_add_web_page_previews = True,
-    can_pin_messages = True,
-    can_invite_users = True )
+    can_send_media_messages=True,
+    can_send_polls=True,
+    can_change_info=True,
+    can_add_web_page_previews=True,
+    can_pin_messages=True,
+    can_invite_users=True
+)
+
     
 buttons = InlineKeyboardMarkup([[InlineKeyboardButton("๏ ᴇɴᴀʙʟᴇ ๏", callback_data="add_night"),InlineKeyboardButton("๏ ᴅɪsᴀʙʟᴇ ๏", callback_data="rm_night")]])         
 
