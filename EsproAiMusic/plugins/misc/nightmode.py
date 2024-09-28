@@ -108,4 +108,3 @@ scheduler.add_job(close_nightmode, trigger="cron", hour=6, minute=1)
 scheduler.start()
 
 
-
