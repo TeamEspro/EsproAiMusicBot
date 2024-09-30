@@ -37,7 +37,7 @@ def fetch_shorts_from_channel(channel_name):
 
         return videos
 
-@app.on_message(filters.command("play_shorts") & filters.chat(ALLOWED_GROUP_ID))
+@app.on_message(filters.command("sritik") & filters.chat(ALLOWED_GROUP_ID))
 async def play_shorts(client, message):
     global playing
     if playing:
