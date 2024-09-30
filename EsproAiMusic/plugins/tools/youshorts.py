@@ -16,29 +16,31 @@ def cookie_txt_file():
     return f"""cookies/{str(cookie_txt_file).split("/")[-1]}"""
 
 
-# Global variable to track playback status
-playing = False  
+
+playing = False
 ALLOWED_GROUP_ID = -1002030185823  # Replace with your group ID
 
 def fetch_shorts_from_channel(channel_name):
     ydl_opts = {
-        'cookiefile': 'cookies.txt',
         'format': 'bestaudio/best',
         'quiet': True,
         'noplaylist': True,
+        'cookiefile': 'cookies.txt',  # Use the cookies file here
     }
 
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        shorts_url = f"https://www.youtube.com/@{channel_name}"  # Channel URL
-        info = ydl.extract_info(shorts_url, download=False)
-        
-        # Collect Shorts videos
-        videos = [f"https://youtube.com/watch?v={video['id']}" for video in info['entries'] if 'Shorts' in video.get('title', '')]
+    shorts_url = f"https://www.youtube.com/@{channel_name}/shorts"  # URL for Shorts
+    try:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(shorts_url, download=False)
+            # Collect Shorts videos
+            videos = [f"https://youtube.com/watch?v={entry['id']}" for entry in info['entries'] if 'Shorts' in entry.get('title', '')]
+            return videos
+    except Exception as e:
+        print(f"Error fetching videos: {e}")
+        return []
 
-        return videos
-
-@app.on_message(filters.command("sritik") & filters.chat(ALLOWED_GROUP_ID))
-async def play_shorts(client, message):
+@app.on_message(filters.command("play_all_shorts") & filters.chat(ALLOWED_GROUP_ID))
+async def play_all_shorts(client, message):
     global playing
     if playing:
         await message.reply("Already playing Shorts. Use /stop to stop the playback.")
@@ -57,40 +59,29 @@ async def play_shorts(client, message):
         return
 
     playing = True
-    await message.reply(f"Starting to play Shorts from {channel_name}. Use /stop to end playback.")
+    await message.reply(f"Starting to play all Shorts from {channel_name}. Use /stop to end playback.")
 
-    # Join the voice chat before starting playback
-    await join_voice_chat(message.chat.id)
-
-    # Play each video one by one
     for video_url in videos:
-        audio_info = yt_dlp.YoutubeDL({'format': 'bestaudio/best'}).extract_info(video_url, download=False)
+        audio_info = yt_dlp.YoutubeDL({'format': 'bestaudio/best', 'cookiefile': 'cookies.txt'}).extract_info(video_url, download=False)
         audio_url = audio_info['formats'][0]['url']
         await message.reply(f"Playing video: {video_url}")
+
         await play_audio_in_voice_chat(message.chat.id, audio_url)
 
     playing = False  # Reset playing status after all videos are played
-    await leave_voice_chat(message.chat.id)  # Leave the voice chat after playback
-
-async def join_voice_chat(chat_id):
-    # Implement logic to join voice chat
-    await app.join_voice_chat(chat_id)  # Replace with the correct method for joining voice chat
 
 async def play_audio_in_voice_chat(chat_id, audio_url):
-    # Implement your audio playback logic here
-    await asyncio.sleep(10)  # Simulate audio playback duration (replace with actual logic)
-
-async def stop_playback(client, message):
-    global playing
-    playing = False
-    await message.reply("Stopped playback.")
-    await leave_voice_chat(message.chat.id)  # Leave the voice chat when stopped
-
-async def leave_voice_chat(chat_id):
-    # Implement logic to leave voice chat
-    await app.leave_voice_chat(chat_id)  # Replace with the correct method for leaving voice chat
+    # Placeholder for audio playback logic
+    print(f"Now playing audio from: {audio_url}")
+    await asyncio.sleep(10)  # Simulate audio playback duration; replace with actual playback logic.
+    print(f"Finished playing audio from: {audio_url}")  # Replace with actual playback logic.
 
 @app.on_message(filters.command("stop") & filters.chat(ALLOWED_GROUP_ID))
 async def handle_stop(client, message):
-    await stop_playback(client, message)
+    global playing
+    if not playing:
+        await message.reply("No audio is currently playing.")
+        return
 
+    playing = False
+    await message.reply("Stopped playback.")
