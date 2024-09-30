@@ -50,7 +50,7 @@ def fetch_shorts_from_channel(channel_name):
         return []
 
 
-@app.on_message(filters.command("sritik") & filters.chat(ALLOWED_GROUP_ID))
+@app.on_message(filters.command("Rritik") & filters.chat(ALLOWED_GROUP_ID))
 async def play_random_short(client, message):
     global playing
     if playing:
