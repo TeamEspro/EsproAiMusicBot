@@ -1,11 +1,8 @@
 import random
 import asyncio
-import os
-import glob
 import yt_dlp
 from EsproAiMusic import app
 from pyrogram import Client, filters
-
 
 playing = False
 ALLOWED_GROUP_ID = -1002030185823  # Replace with your group ID
@@ -15,7 +12,6 @@ def fetch_shorts_from_channel(channel_name):
         'format': 'bestaudio/best',
         'quiet': True,
         'noplaylist': True,
-        'cookiefile': cookie_txt_file(),  # Use the cookies file here
         'http_headers': {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         },
@@ -43,7 +39,6 @@ def fetch_shorts_from_channel(channel_name):
         return []
 
 
-
 @app.on_message(filters.command("Rritik") & filters.chat(ALLOWED_GROUP_ID))
 async def play_random_short(client, message):
     global playing
@@ -65,7 +60,7 @@ async def play_random_short(client, message):
 
     # Select a random video from the list
     random_video_url = random.choice(videos)
-    audio_info = yt_dlp.YoutubeDL({'format': 'bestaudio/best', 'cookiefile': cookie_txt_file()}).extract_info(random_video_url, download=False)
+    audio_info = yt_dlp.YoutubeDL({'format': 'bestaudio/best'}).extract_info(random_video_url, download=False)
     audio_url = audio_info['formats'][0]['url']
 
     playing = True
@@ -78,15 +73,18 @@ async def play_random_short(client, message):
 
     playing = False  # Reset playing status after the video is played
 
+
 async def join_voice_chat(chat_id):
     # Logic to join the voice chat
     await app.join_voice_chat(chat_id)  # Make sure your bot has the required permissions
+
 
 async def play_audio_in_voice_chat(chat_id, audio_url):
     # Placeholder for audio playback logic
     print(f"Now playing audio from: {audio_url}")
     await asyncio.sleep(10)  # Simulate audio playback duration; replace with actual playback logic.
     print(f"Finished playing audio from: {audio_url}")  # Replace with actual playback logic.
+
 
 @app.on_message(filters.command("stop") & filters.chat(ALLOWED_GROUP_ID))
 async def handle_stop(client, message):
@@ -97,4 +95,3 @@ async def handle_stop(client, message):
 
     playing = False
     await message.reply("Stopped playback.")
-
