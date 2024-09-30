@@ -62,6 +62,7 @@ spotipy
 telegraph
 tgcrypto
 unidecode
+profile_name
 wget
 yt-dlp==2024.8.6
 youtube-search
