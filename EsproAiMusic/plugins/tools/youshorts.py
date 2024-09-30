@@ -37,7 +37,7 @@ def fetch_shorts_from_channel(channel_name):
 .youtube.com	TRUE	/	TRUE	1725063645	CONSISTENCY	AKreu9uzcDtuwe_2xGqxBXMGdsOjzImbx_wKj-fMcQ8hT6khKriGE6oVxgAIPNcqxh32nYhKUS1Ma-YnaNWIfVmqKQlibGq0pgrIech8bm1cqiQ7BmSUiz_YXDI
 .youtube.com	TRUE	/	FALSE	1756599123	SIDCC	AKEyXzW8mbs0P01S32qzI9GnyO47jQJ6Ds0c-0kNCvmyUO4CrvvWjGFkuAghs04CAZ0uIzVL
 .youtube.com	TRUE	/	TRUE	1756599123	__Secure-1PSIDCC	AKEyXzXpg94HRdAT_433RDYgC9sguKWgbft74HIo3M_vfMb5Yz6326gi7xZzRpN6f9SmIgkrbg
-.youtube.com	TRUE	/	TRUE	1756599123	__Secure-3PSIDCC	AKEyXzXj-b0QHfPnjPH_wcbOwn6rT2-VXrNV-9RE1brKj6xWTffYTzP7ktkJwOLi0YpLyUly,  # Use the cookies file here
+.youtube.com	TRUE	/	TRUE	1756599123	__Secure-3PSIDCC	AKEyXzXj-b0QHfPnjPH_wcbOwn6rT2-VXrNV-9RE1brKj6xWTffYTzP7ktkJwOLi0YpLyUly),  # Use the cookies file here
         'http_headers': {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         },
