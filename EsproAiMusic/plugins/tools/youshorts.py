@@ -8,7 +8,7 @@ playing = False
 ALLOWED_GROUP_ID = -1002030185823  # Replace with your group ID
 
 # Path to your YouTube cookies file
-COOKIES_FILE = 'cookies.txt'  # Replace with the path to your cookies.txt file
+COOKIES_FILE = 'example.txt'  # Replace with the path to your cookies.txt file
 
 def fetch_shorts_from_channel(channel_name):
     ydl_opts = {
