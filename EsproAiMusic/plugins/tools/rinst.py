@@ -69,10 +69,12 @@ async def stop_reels(client, message):
 async def close_session():
     global session
     if session:
-        await session.close()
+        await session.close()  # Close the aiohttp session
         session = None
         print("Client session closed.")
 
 # Initialize the bot
 
-# Proper shutdown handling to close sessio
+finally:
+    if session:
+        asyncio.run(close_session())  # Ensure aiohttp session is closed on exit
