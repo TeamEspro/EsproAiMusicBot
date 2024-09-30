@@ -66,7 +66,7 @@ async def stop_reels(client, message):
 
 # Close aiohttp session on shutdown
 @app.on_disconnect
-async def close_session():
+async def close_session(client):
     global session
     if session:
         await session.close()  # Close the aiohttp session
@@ -81,4 +81,4 @@ except Exception as e:
 finally:
     # Ensure aiohttp session is closed on exit
     if session:
-        asyncio.run(close_session())
+        asyncio.run(close_session(app))  # Pass the app instance to close_session if needed
