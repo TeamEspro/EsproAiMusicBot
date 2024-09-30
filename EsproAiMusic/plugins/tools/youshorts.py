@@ -25,12 +25,14 @@ def fetch_shorts_from_channel(channel_name):
         'quiet': True,
         'noplaylist': True,
         'cookiefile': cookie_txt_file(),  # Use the cookies file here
+        'http_headers': {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        },
     }
 
     # Get the channel's ID using the channel name
     try:
         with yt_dlp.YoutubeDL({'quiet': True}) as ydl:
-            # Fetch channel information to get the channel ID
             channel_info = ydl.extract_info(f"https://www.youtube.com/@{channel_name}", download=False)
             channel_id = channel_info['id']  # Extract the channel ID
     except Exception as e:
@@ -48,6 +50,7 @@ def fetch_shorts_from_channel(channel_name):
     except Exception as e:
         print(f"Error fetching videos: {e}")
         return []
+
 
 
 @app.on_message(filters.command("Rritik") & filters.chat(ALLOWED_GROUP_ID))
