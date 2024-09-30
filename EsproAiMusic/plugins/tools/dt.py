@@ -1,4 +1,4 @@
-from GroupService import pbot as app
+from EsproAiMusic import app
 from pyrogram import Client, filters
 import re
 
@@ -18,4 +18,4 @@ def delete_links(client, message):
         if contains_link(message.text):
             # Agar message me link ho to us message ko delete kar do
             message.delete()
-            print(f"Deleted message with link: {message.text}")
+            print(f"Deleted message with link: {message.text} \n\n join everyone @EsproSupport")
