@@ -73,8 +73,12 @@ async def close_session():
         session = None
         print("Client session closed.")
 
-# Initialize the bot
-
+# Initialize the bot and handle session cleanup
+try:
+    app.run()  # Start the bot
+except Exception as e:
+    print(f"An error occurred: {e}")
 finally:
+    # Ensure aiohttp session is closed on exit
     if session:
-        asyncio.run(close_session())  # Ensure aiohttp session is closed on exit
+        asyncio.run(close_session())
