@@ -30,32 +30,36 @@ def fetch_shorts_from_channel(channel_name):
         'format': 'bestaudio/best',
         'quiet': True,
         'noplaylist': True,
-        'cookiefile': COOKIES_FILE,  # Adding cookie file for authentication
+        'cookiefile': COOKIES_FILE(),  # Corrected cookie usage
         'http_headers': {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         },
     }
 
-    # Get the channel's ID using the channel name
     try:
-        with yt_dlp.YoutubeDL({'quiet': True, 'cookiefile': COOKIES_FILE}) as ydl:
+        # Get the channel ID from the channel name
+        with yt_dlp.YoutubeDL({'quiet': True, 'cookiefile': COOKIES_FILE()}) as ydl:
             channel_info = ydl.extract_info(f"https://www.youtube.com/@{channel_name}", download=False)
-            channel_id = channel_info['id']  # Extract the channel ID
+            channel_id = channel_info['id']
     except Exception as e:
         print(f"Error fetching channel ID: {e}")
         return []
 
-    # Now use the channel ID to get the Shorts
-    shorts_url = f"https://www.youtube.com/channel/{channel_id}/shorts"
+    # Fetch all videos from the channel
+    search_url = f"https://www.youtube.com/channel/{channel_id}/videos"
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(shorts_url, download=False)
-            # Collect all Shorts videos
-            videos = [f"https://youtube.com/watch?v={entry['id']}" for entry in info['entries'] if 'Shorts' in entry.get('title', '')]
-            return videos
+            info = ydl.extract_info(search_url, download=False)
+            # Filter videos that are less than 60 seconds (Shorts criteria)
+            shorts_videos = [
+                f"https://youtube.com/watch?v={entry['id']}"
+                for entry in info['entries'] if entry.get('duration') and entry['duration'] < 60
+            ]
+            return shorts_videos
     except Exception as e:
         print(f"Error fetching videos: {e}")
         return []
+
 
 
 @app.on_message(filters.command("Rritik") & filters.chat(ALLOWED_GROUP_ID))
