@@ -15,7 +15,7 @@ def COOKIES_FILE():
     txt_files = glob.glob(os.path.join(folder_path, '*.txt'))
     if not txt_files:
         raise FileNotFoundError("No .txt files found in the specified folder.")
-    cookie_txt_file = random.choice(txt_files)
+    COOKIES_FILE = random.choice(txt_files)
     with open(filename, 'a') as file:
         file.write(f'Choosen File : {COOKIES_FILE}\n')
     return f"""cookies/{str(COOKIES_FILE).split("/")[-1]}"""
