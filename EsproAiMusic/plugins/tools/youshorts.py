@@ -4,11 +4,26 @@ import yt_dlp
 from EsproAiMusic import app
 from pyrogram import Client, filters
 
+import os
+import glob
+import random
+import logging
+
+def COOKIES_FILE():
+    folder_path = f"{os.getcwd()}/cookies"
+    filename = f"{os.getcwd()}/cookies/logs.csv"
+    txt_files = glob.glob(os.path.join(folder_path, '*.txt'))
+    if not txt_files:
+        raise FileNotFoundError("No .txt files found in the specified folder.")
+    cookie_txt_file = random.choice(txt_files)
+    with open(filename, 'a') as file:
+        file.write(f'Choosen File : {COOKIES_FILE}\n')
+    return f"""cookies/{str(COOKIES_FILE).split("/")[-1]}"""
+
 playing = False
 ALLOWED_GROUP_ID = -1002030185823  # Replace with your group ID
 
-# Path to your YouTube cookies file
-COOKIES_FILE = 'example.txt'  # Replace with the path to your cookies.txt file
+
 
 def fetch_shorts_from_channel(channel_name):
     ydl_opts = {
