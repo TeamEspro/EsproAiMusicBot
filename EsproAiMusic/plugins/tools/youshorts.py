@@ -7,11 +7,15 @@ from pyrogram import Client, filters
 playing = False
 ALLOWED_GROUP_ID = -1002030185823  # Replace with your group ID
 
+# Path to your YouTube cookies file
+COOKIES_FILE = 'cookies.txt'  # Replace with the path to your cookies.txt file
+
 def fetch_shorts_from_channel(channel_name):
     ydl_opts = {
         'format': 'bestaudio/best',
         'quiet': True,
         'noplaylist': True,
+        'cookiefile': COOKIES_FILE,  # Adding cookie file for authentication
         'http_headers': {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         },
@@ -19,7 +23,7 @@ def fetch_shorts_from_channel(channel_name):
 
     # Get the channel's ID using the channel name
     try:
-        with yt_dlp.YoutubeDL({'quiet': True}) as ydl:
+        with yt_dlp.YoutubeDL({'quiet': True, 'cookiefile': COOKIES_FILE}) as ydl:
             channel_info = ydl.extract_info(f"https://www.youtube.com/@{channel_name}", download=False)
             channel_id = channel_info['id']  # Extract the channel ID
     except Exception as e:
@@ -42,33 +46,52 @@ def fetch_shorts_from_channel(channel_name):
 @app.on_message(filters.command("Rritik") & filters.chat(ALLOWED_GROUP_ID))
 async def play_random_short(client, message):
     global playing
+
+    # Delete the command message sent by the user
+    await message.delete()
+
     if playing:
-        await message.reply("Already playing Shorts. Use /stop to stop the playback.")
+        wait_message = await message.reply("Already playing Shorts. Use /stop to stop the playback.")
+        await asyncio.sleep(5)  # Wait for 5 seconds before deleting the message
+        await wait_message.delete()
         return
 
     command_parts = message.command
     if len(command_parts) < 2:
-        await message.reply("Please provide a channel name after the command.")
+        error_message = await message.reply("Please provide a channel name after the command.")
+        await asyncio.sleep(5)  # Wait for 5 seconds before deleting the message
+        await error_message.delete()
         return
+
+    # Send a "please wait" message to the user
+    wait_message = await message.reply("Fetching Shorts, please wait...")
 
     channel_name = command_parts[1]  # Get the channel name from command
     videos = fetch_shorts_from_channel(channel_name)
 
+    # Delete the "please wait" message after fetching the videos
+    await wait_message.delete()
+
     if not videos:
-        await message.reply("No Shorts found for the specified channel.")
+        error_message = await message.reply("No Shorts found for the specified channel.")
+        await asyncio.sleep(5)  # Wait for 5 seconds before deleting the message
+        await error_message.delete()
         return
 
     # Select a random video from the list
     random_video_url = random.choice(videos)
-    audio_info = yt_dlp.YoutubeDL({'format': 'bestaudio/best'}).extract_info(random_video_url, download=False)
+    audio_info = yt_dlp.YoutubeDL({'format': 'bestaudio/best', 'cookiefile': COOKIES_FILE}).extract_info(random_video_url, download=False)
     audio_url = audio_info['formats'][0]['url']
 
     playing = True
-    await message.reply(f"Playing a random short from {channel_name}: {random_video_url}")
+    success_message = await message.reply(f"Playing a random short from {channel_name}: {random_video_url}")
 
-    # Join the voice chat
+    # Delete the success message after 10 seconds
+    await asyncio.sleep(10)
+    await success_message.delete()
+
+    # Join the voice chat and play the audio
     await join_voice_chat(message.chat.id)
-
     await play_audio_in_voice_chat(message.chat.id, audio_url)
 
     playing = False  # Reset playing status after the video is played
@@ -90,8 +113,12 @@ async def play_audio_in_voice_chat(chat_id, audio_url):
 async def handle_stop(client, message):
     global playing
     if not playing:
-        await message.reply("No audio is currently playing.")
+        error_message = await message.reply("No audio is currently playing.")
+        await asyncio.sleep(5)  # Wait for 5 seconds before deleting the message
+        await error_message.delete()
         return
 
     playing = False
-    await message.reply("Stopped playback.")
+    stop_message = await message.reply("Stopped playback.")
+    await asyncio.sleep(5)  # Wait for 5 seconds before deleting the message
+    await stop_message.delete()
