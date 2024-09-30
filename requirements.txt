@@ -26,7 +26,6 @@ hachoir
 heroku3
 httpx==0.27.0
 img2pdf
-instaloader
 lexica-api
 motor 
 MukeshAPI
@@ -62,7 +61,6 @@ spotipy
 telegraph
 tgcrypto
 unidecode
-profile_name
 wget
 yt-dlp==2024.8.6
 youtube-search
