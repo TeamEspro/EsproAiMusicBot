@@ -27,8 +27,18 @@ def fetch_shorts_from_channel(channel_name):
         'cookiefile': cookie_txt_file(),  # Use the cookies file here
     }
 
-    # URL for the channel's Shorts
-    shorts_url = f"https://www.youtube.com/@{channel_name}/shorts"
+    # Get the channel's ID using the channel name
+    try:
+        with yt_dlp.YoutubeDL({'quiet': True}) as ydl:
+            # Fetch channel information to get the channel ID
+            channel_info = ydl.extract_info(f"https://www.youtube.com/@{channel_name}", download=False)
+            channel_id = channel_info['id']  # Extract the channel ID
+    except Exception as e:
+        print(f"Error fetching channel ID: {e}")
+        return []
+
+    # Now use the channel ID to get the Shorts
+    shorts_url = f"https://www.youtube.com/channel/{channel_id}/shorts"
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(shorts_url, download=False)
@@ -38,6 +48,7 @@ def fetch_shorts_from_channel(channel_name):
     except Exception as e:
         print(f"Error fetching videos: {e}")
         return []
+
 
 @app.on_message(filters.command("sritik") & filters.chat(ALLOWED_GROUP_ID))
 async def play_random_short(client, message):
