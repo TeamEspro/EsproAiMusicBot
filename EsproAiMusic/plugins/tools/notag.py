@@ -7,7 +7,7 @@ from EsproAiMusic import app
 
 
 # Usernames ko store karne ke liye ek list
-protected_usernames = [@HaiwanOwner]
+protected_usernames = ["@HaiwanOwner"]
 
 # Command to add a username to the protected list
 @app.on_message(filters.command("adduser") & filters.user("your_username"))  # Replace with your admin username
