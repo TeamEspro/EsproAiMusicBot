@@ -1,11 +1,14 @@
-from pyrogram import Client, filters
+
 from EsproAiMusic import app
+from pyrogram import Client, filters
 from pyrogram.types import Message
 from pytgcalls import PyTgCalls
 from pytgcalls.types.input_stream import InputAudioStream
 from pytgcalls.types.input_stream.quality import HighQualityAudio
 
 
+
+# PyTgCalls ke liye client setup
 pytg = PyTgCalls(app)
 
 @app.on_message(filters.command("playsong", prefixes="!") & filters.group)
@@ -44,7 +47,6 @@ async def stop_song(client: Client, message: Message):
         await message.reply(f"Kuch galat ho gaya: {e}")
 
 # Bot ko start kijiye
-
 pytg.start()
 print("Bot is running...")
 
