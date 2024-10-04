@@ -1,9 +1,9 @@
-from EsproAiMusic import app
 from pyrogram import Client, filters
+from EsproAiMusic import app
 from pyrogram.types import Message
 from pytgcalls import PyTgCalls
 from pytgcalls.types.input_stream import InputAudioStream
-from pytgcalls.types.stream import StreamType
+from pytgcalls.types.input_stream.quality import HighQualityAudio
 
 
 pytg = PyTgCalls(app)
@@ -25,7 +25,7 @@ async def play_song(client: Client, message: Message):
             group_or_channel_id,
             InputAudioStream(
                 song_path,
-                StreamType().local_stream
+                HighQualityAudio()  # High Quality Audio stream use kar rahe hain
             )
         )
         await message.reply(f"Song successfully play ho gaya {group_or_channel_id} mein.")
