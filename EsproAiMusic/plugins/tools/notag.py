@@ -7,7 +7,7 @@ from pytgcalls.exceptions import NoActiveGroupCall
 import yt_dlp  # To search and download YouTube URLs
 
 
-pytgcalls = PyTgCalls(app)
+
 
 # Banned users list (if needed)
 BANNED_USERS = []
