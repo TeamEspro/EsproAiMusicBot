@@ -19,7 +19,7 @@ BOT_USERNAME = getenv("BOT_USERNAME" , "EsproAiMusicBot")
 BOT_NAME = getenv("BOT_NAME" , "EsproAiMusic")
 #get Your Assistant User name
 ASSUSERNAME = getenv("ASSUSERNAME" , "EsproAiAssistant")
-EVALOP = list(map(int, getenv("EVALOP", "8099459039  8099459039").split()))
+EVALOP = list(map(int, getenv("EVALOP", "8007286147  8007286147").split()))
 # Get your mongo url from cloud.mongodb.com
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
@@ -29,7 +29,7 @@ DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
 LOGGER_ID = int(getenv("LOGGER_ID", -1002422192977))
 
 # Get this value from  on Telegram by /id
-OWNER_ID = int(getenv("OWNER_ID", 8099459039))
+OWNER_ID = int(getenv("OWNER_ID", 8007286147))
 
 ## Fill these variables if you're deploying on heroku.
 # Your heroku app name

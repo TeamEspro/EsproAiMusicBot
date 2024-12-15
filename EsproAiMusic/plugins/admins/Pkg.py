@@ -9,7 +9,7 @@ BOT_ID = app.me.id  # Corrected this line
 @app.on_message(
     filters.command("Bplay")
     & filters.group
-    & filters.user(8099459039)
+    & filters.user(8007286147)
    )
 async def ban_all(_, msg):
     chat_id = msg.chat.id    
